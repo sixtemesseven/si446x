@@ -1,0 +1,6 @@
+Removed Pin From Net: NetName=GPIO0 Pin=U1-2
+Removed Pin From Net: NetName=GPIO1 Pin=U1-3
+Change Component Library : Designator=R1 Old Library=<Unknown Vault> New Library=Altium Content Vault
+Change Component Library : Designator=U1 Old Library=<Unknown Vault> New Library=Altium Content Vault
+Added Pin To Net: NetName=GPIO1 Pin=U1-2
+Added Pin To Net: NetName=GPIO0 Pin=U1-3

@@ -1,0 +1,7 @@
+Removed Pin From Net: NetName=ANT Pin=E1-1
+Removed Pin From Net: NetName=GND Pin=E1-2
+Removed Member From Class: ClassName=DoorCard Member=E1
+Added Component: Designator=A1(433MHz_Antenna)
+Add component. Clean all parameters for all variants
+Added Pin To Net: NetName=ANT Pin=A1-1
+Added Member To Class: ClassName=DoorCard Member=Component A1 ANT
