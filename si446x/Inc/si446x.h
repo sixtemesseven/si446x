@@ -25,12 +25,12 @@ class si446x
 {
   public:
 	si446x(GPIO_TypeDef* pinBank, SPI_HandleTypeDef* spi, uint16_t ss, uint16_t sdn, uint16_t irq, uint16_t gpio0, uint16_t gpio1);
-    void sendPacket(uint8_t* data, uint16_t len);
+    void sendPacket(uint8_t* data, uint16_t len, uint8_t channel);
     void getPacket(uint8_t* rxData, uint8_t len);
     void powerUp();
     void setState(uint8_t state);
     uint8_t getState();
-    void startRX();
+    void startRX(uint8_t channel);
     uint8_t getRxFifoInfo();
     
   private:
@@ -50,10 +50,11 @@ class si446x
     void printHexArray(uint8_t* data, uint16_t  len);
     void writeConfig();
     void sendDataToFifo(uint8_t *data, uint8_t  len);
-    void transmitOTA();
+    void transmitOTA(uint8_t channel);
     void getDataFromFifo(uint8_t *data, uint16_t  len); //TODO: Check if working
     void clearFifoTXRX();
     void sendCommand(uint8_t* command, uint8_t lenCommand);
+    void setReadyState();
 };
 
 #endif

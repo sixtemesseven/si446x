@@ -103,8 +103,7 @@ int main(void)
   MX_USART2_UART_Init();
   MX_SPI1_Init();
   /* USER CODE BEGIN 2 */
-  rf.powerUp();
-  rf.startRX();
+
 
   /* USER CODE END 2 */
 
@@ -114,6 +113,7 @@ int main(void)
   {
 
   /* USER CODE END WHILE */
+	  rf.powerUp();
 
 	  bool isTransmitter = false;
 	  bool isReceiver = true;
@@ -122,16 +122,16 @@ int main(void)
 	  if(isTransmitter == true)
 	  {
 		  uint8_t packet[50] = {"Message in RXFIFO"};
-		  rf.sendPacket(packet, 21);
+		  rf.sendPacket(packet, 21, 1);
 		  HAL_Delay(200);
 	  }
 
 	  //MODEM 2 - RECEIVER
 	  if(isReceiver == true)
 	  {
-		  rf.startRX();
+		  rf.startRX(1);
 
-		  while(true);
+		  while (1)
 		  {
 			  uint8_t fifoBytes = rf.getRxFifoInfo();
 

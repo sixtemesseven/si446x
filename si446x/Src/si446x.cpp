@@ -17,20 +17,22 @@ si446x::si446x(GPIO_TypeDef* pinBank, SPI_HandleTypeDef* spi, uint16_t ss,
 }
 
 //Send a package
-void si446x::sendPacket(uint8_t * data, uint16_t len) {
+void si446x::sendPacket(uint8_t * data, uint16_t len, uint8_t channel) {
 
 	//Clear Fifo
 	clearFifoTXRX();
 	//Ready State
-	uint8_t comBuf[] = {CHANGE_STATE, 0x03}; //Change to ready mode
-	sendCommand(comBuf, 2);
+	setReadyState();
 	//Clear Interupts
 	clearInterupts();
 	//Send to fifo
 	sendDataToFifo(data, len);
-	//Transmitt
-	transmitOTA();
+	//Transmit data
+	uint8_t setTxMode[] = {START_TX, channel, 0x80, 0x00};
+	sendCommand(setTxMode, sizeof(setTxMode));
+	HAL_Delay(500); //TODO Use nIRQ / GPIO Pin
 }
+
 
 //Power up and program MCU
 void si446x::powerUp() {
@@ -107,26 +109,24 @@ uint8_t si446x::getState() //TODO
 	return 0xff;
 }
 
-//Transmits TX FIFO Content over the air
-void si446x::transmitOTA() {
-	uint8_t comBuf[] = {START_TX, 0x01, 0x80, 0x00};
-	sendCommand(comBuf, sizeof(comBuf));
-	HAL_Delay(500); //TODO Use nIRQ Pin ...
+//Will bring modem to ready state
+void si446x::setReadyState()
+{
+	uint8_t comBuf[] = {CHANGE_STATE, 0x03};
+	sendCommand(comBuf, 2);
 }
 
 //Inits. RX Mode. When one package is received, modem will fall back to ready mode
-void si446x::startRX()
+void si446x::startRX(uint8_t channel)
 {
 	//Ready State
-	uint8_t comBuf[] = {CHANGE_STATE, 0x03}; //Change to ready mode
-	sendCommand(comBuf, 2);
-	HAL_Delay(100);
+	setReadyState();
 	//Clear Interupts
 	clearInterupts();
 	//Clear FIFO TX /RX
 	clearFifoTXRX();
 	//Get Radio into RX Mode
-	uint8_t commandRx[] = {START_RX, 0x01, 0x00, 0x00, 0x00, 0x00,0x03,0x00};
+	uint8_t commandRx[] = {START_RX, channel, 0x00, 0x00, 0x00, 0x00,0x03,0x00};
 	sendCommand(commandRx, sizeof(commandRx));
 }
 
