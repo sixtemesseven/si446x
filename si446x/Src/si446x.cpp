@@ -148,18 +148,13 @@ void si446x::clearFifoTXRX() {
 //Gets Packet out of FIFO
 void si446x::getPacket(uint8_t* rxData, uint8_t len)
 {
-	getDataFromFifo(rxData, len); //TODO get lenght
-}
-
-//Reads len Bytes from RX FIFO
-void si446x::getDataFromFifo(uint8_t *data, uint16_t len) {
-	waitUntilReady();
-	uint8_t comand[] = {READ_RX_FIFO};
+	uint8_t buf = READ_RX_FIFO;
 	HAL_GPIO_WritePin(PIN_BANK, SS, GPIO_PIN_RESET);
-	HAL_SPI_Transmit(SPI, comand, 1, spiTimeout);
-	HAL_SPI_Receive(SPI, data, len, spiTimeout);
+	HAL_SPI_Transmit(SPI, &buf, 1, spiTimeout);
+	HAL_SPI_Receive(SPI, rxData, len, spiTimeout);
 	HAL_GPIO_WritePin(PIN_BANK, SS, GPIO_PIN_SET);
 }
+
 
 //Writes the configs from the radio_config_Si4463.h to the radio
 //TODO include patch?
