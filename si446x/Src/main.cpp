@@ -115,28 +115,36 @@ int main(void)
 
   /* USER CODE END WHILE */
 
+	  bool isTransmitter = false;
+	  bool isReceiver = true;
+
 	  //MODEM 1 -- TRANSMITTER
-	  uint8_t packet[50] = {"Message in RXFIFO"};
-	  rf.sendPacket(packet, 21);
-	  HAL_Delay(200);
+	  if(isTransmitter == true)
+	  {
+		  uint8_t packet[50] = {"Message in RXFIFO"};
+		  rf.sendPacket(packet, 21);
+		  HAL_Delay(200);
+	  }
 
 	  //MODEM 2 - RECEIVER
-	  /*
-	  rf.startRX();
-	  while(true);
+	  if(isReceiver == true)
 	  {
-		  uint8_t fifoBytes = rf.getRxFifoInfo();
+		  rf.startRX();
 
-		  uint8_t buf[60] = {"Package Received"};
-		  if(fifoBytes > 0)
+		  while(true);
 		  {
-			  HAL_UART_Transmit(&huart2, buf, 16, 1000);
-			  rf.getPacket(buf, fifoBytes);
-			  HAL_UART_Transmit(&huart2, buf, fifoBytes, 1000);
-			  break;
-		  }
+			  uint8_t fifoBytes = rf.getRxFifoInfo();
+
+			  uint8_t buf[60] = {"Package Received"};
+			  if(fifoBytes > 0)
+			  {
+				  HAL_UART_Transmit(&huart2, buf, 16, 1000);
+				  rf.getPacket(buf, fifoBytes);
+				  HAL_UART_Transmit(&huart2, buf, fifoBytes, 1000);
+				  break;
+			  }
 	  }
-	  */
+
   /* USER CODE BEGIN 3 */
 
   }

@@ -119,15 +119,15 @@ void si446x::startRX()
 {
 	//Ready State
 	uint8_t comBuf[] = {CHANGE_STATE, 0x03}; //Change to ready mode
-		sendCommand(comBuf, 2);
-		HAL_Delay(100);
-		//Clear Interupts
-		clearInterupts();
-		//Clear FIFO TX /RX
-		clearFifoTXRX();
-		//Get Radio into RX Mode
-		uint8_t commandRx[] = {START_RX, 0x01, 0x00, 0x00, 0x00, 0x00,0x03,0x00};
-		sendCommand(commandRx, sizeof(commandRx));
+	sendCommand(comBuf, 2);
+	HAL_Delay(100);
+	//Clear Interupts
+	clearInterupts();
+	//Clear FIFO TX /RX
+	clearFifoTXRX();
+	//Get Radio into RX Mode
+	uint8_t commandRx[] = {START_RX, 0x01, 0x00, 0x00, 0x00, 0x00,0x03,0x00};
+	sendCommand(commandRx, sizeof(commandRx));
 }
 
 //Returns number of Bytes in RX FIFO
