@@ -116,8 +116,8 @@ int main(void)
   /* USER CODE END WHILE */
 
 	  //MODEM 1 -- TRANSMITTER
-	  uint8_t packet[50] = {"Hello World How are you today asddsfsdafdsafs"};
-	  rf.sendPacket(packet, 50);
+	  uint8_t packet[50] = {"Message in RXFIFO"};
+	  rf.sendPacket(packet, 21);
 	  HAL_Delay(200);
 
 	  //MODEM 2 - RECEIVER
