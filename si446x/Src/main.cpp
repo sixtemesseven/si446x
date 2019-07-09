@@ -143,6 +143,8 @@ int main(void)
 				  HAL_UART_Transmit(&huart2, buf, fifoBytes, 1000);
 				  break;
 			  }
+
+		  }
 	  }
 
   /* USER CODE BEGIN 3 */
