@@ -17,7 +17,7 @@ si446x::si446x(GPIO_TypeDef* pinBank, SPI_HandleTypeDef* spi, uint16_t ss,
 }
 
 //Send a package
-void si446x::sendPacket(uint8_t * data, uint16_t len, uint8_t channel) {
+void si446x::sendPacket(uint8_t* data, uint16_t len, uint8_t channel) {
 
 	//Clear Fifo
 	clearFifoTXRX();
@@ -90,8 +90,9 @@ void si446x::sendComandGetResponse(uint8_t* command, uint8_t lenCommand, uint8_t
 //Send data to Rx FIFO
 void si446x::sendDataToFifo(uint8_t *data, uint8_t len) {
 	waitUntilReady();
+	uint8_t comand[1] ={WRITE_TX_FIFO};
 	HAL_GPIO_WritePin(PIN_BANK, SS, GPIO_PIN_RESET);
-	HAL_SPI_Transmit(SPI, (uint8_t*) WRITE_TX_FIFO, 1, spiTimeout);
+	HAL_SPI_Transmit(SPI, comand, 1, spiTimeout);
 	HAL_SPI_Transmit(SPI, data, len, spiTimeout);
 	HAL_GPIO_WritePin(PIN_BANK, SS, GPIO_PIN_SET);
 }
@@ -134,7 +135,7 @@ void si446x::startRX(uint8_t channel)
 uint8_t si446x::getRxFifoInfo()
 {
 	uint8_t comBuf[2] = {0x15, 0x00};
-	uint8_t response[3] = {0x00,0x00,0x00};
+	uint8_t response[2] = {0x00};
 	sendComandGetResponse(comBuf, 2, response, 2);
 	return(response[0]);
 }

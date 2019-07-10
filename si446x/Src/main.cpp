@@ -115,14 +115,15 @@ int main(void)
 
   /* USER CODE END WHILE */
 
-	  bool isTransmitter = false;
-	  bool isReceiver = true;
+	  bool isTransmitter = true;
+	  bool isReceiver = false;
 
 	  //MODEM 1 -- TRANSMITTER
 	  if(isTransmitter == true)
 	  {
-		  uint8_t packet[50] = {"abcdefg"};
-		  rf.sendPacket(packet, 7, 1);
+		  uint8_t packet[50] = {"abcdefg1234567"};
+		  HAL_UART_Transmit(&huart2, packet, 14, 5000);
+		  rf.sendPacket(packet, 14, 1);
 		  HAL_Delay(200);
 	  }
 
@@ -140,8 +141,8 @@ int main(void)
 			  if(fifoBytes > 0)
 			  {
 				  HAL_UART_Transmit(&huart2, buf, 16, 1000);
-				  rf.getPacket(buf, 64);
-				  HAL_UART_Transmit(&huart2, message, 64, 1000);
+				  rf.getPacket(buf, fifoBytes);
+				  HAL_UART_Transmit(&huart2, message, fifoBytes, 1000);
 				  break;
 			  }
 
