@@ -1,7 +1,0 @@
-Removed Pin From Net: NetName=GND Pin=C1-2
-Removed Pin From Net: NetName=VCC Pin=R1-2
-Removed Member From Class: ClassName=DoorCard Member=C1
-Removed Member From Class: ClassName=DoorCard Member=R1
-Added Pin To Net: NetName=VCC Pin=SW3-2
-Added Pin To Net: NetName=VCC Pin=SW4-2
-Added Room: Name=DoorCard

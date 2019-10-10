@@ -1,9 +1,0 @@
-Removed Pin From Net: NetName=SW3 Pin=U3-3
-Removed Pin From Net: NetName=SDN Pin=U3-17
-Change Component Comment : Designator=R5 Old Comment=10k New Comment=FUSE
-Change Component Description : Designator=R5 Old Description=10K2 0.125W 1% 0805 (2012 Metric)  SMD New Description=PTC Fuse
-Added Pin To Net: NetName=SDN Pin=U3-3
-Added Pin To Net: NetName=SW3 Pin=U3-17
-Change Net Name : Old Net Name=LED New Net Name=LED_RED
-Change Net Name : Old Net Name=NetDS2_1 New Net Name=LED_GREEN
-Added Room: Name=DoorCard
