@@ -67,7 +67,7 @@ static void MX_SPI1_Init(void);
 
 /* USER CODE BEGIN 0 */
 #include "si446x.h"
-si446x rf(GPIOA, &hspi1, nSEL_Pin, SDN_Pin, IRQ_Pin, GPIO0_Pin, GPIO1_Pin);
+//si446x rf(GPIOA, &hspi1, nSEL_Pin, SDN_Pin, IRQ_Pin, GPIO0_Pin, GPIO1_Pin);
 
 /* USER CODE END 0 */
 
@@ -113,10 +113,17 @@ int main(void)
   while (1)
   {
 
+
   /* USER CODE END WHILE */
+
+	  //HAL_PWR_EnterSLEEPMode();
 
 	  bool isTransmitter = true;
 	  bool isReceiver = false;
+
+	  HAL_GPIO_WritePin(GPIOB, LED_GREEN, GPIO_PIN_SET);
+	  HAL_Delay(1000);
+	  HAL_GPIO_WritePin(GPIOB, LED_GREEN, GPIO_PIN_SET);
 
 	  //MODEM 1 -- TRANSMITTER
 	  if(isTransmitter == true)
