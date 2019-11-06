@@ -1,0 +1,7 @@
+main.cpp:30:8:bool arrayCompare(uint8_t*, uint8_t*)	24	static
+main.cpp:88:5:int main()	128	static
+main.cpp:195:6:void SystemClock_Config()	80	static
+main.cpp:229:13:void MX_SPI1_Init()	8	static
+main.cpp:269:13:void MX_USART2_UART_Init()	8	static
+main.cpp:304:13:void MX_GPIO_Init()	48	static
+main.cpp:365:6:void Error_Handler()	8	static

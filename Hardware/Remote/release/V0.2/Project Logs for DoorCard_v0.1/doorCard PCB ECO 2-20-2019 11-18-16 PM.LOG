@@ -1,0 +1,125 @@
+Removed Pin From Net: NetName=NetD4_1 Pin=P1-3
+Removed Pin From Net: NetName=SWINT Pin=SW1-1
+Removed Pin From Net: NetName=VCC Pin=SW1-2
+Removed Pin From Net: NetName=SWINT Pin=SW2-1
+Removed Pin From Net: NetName=VCC Pin=SW2-2
+Removed Pin From Net: NetName=SWINT Pin=SW3-1
+Removed Pin From Net: NetName=VCC Pin=SW3-2
+Removed Pin From Net: NetName=SWINT Pin=SW4-1
+Removed Pin From Net: NetName=VCC Pin=SW4-2
+Removed Pin From Net: NetName=SWINT Pin=U1-1
+Removed Pin From Net: NetName=NetR5_2 Pin=U1-2
+Removed Pin From Net: NetName=GND Pin=U1-3
+Removed Pin From Net: NetName=VCC Pin=U1-4
+Removed Pin From Net: NetName=GND Pin=U1-5
+Removed Pin From Net: NetName=VCC Pin=U1-6
+Removed Pin From Net: NetName=NetR4_2 Pin=U1-7
+Removed Pin From Net: NetName=NetR3_2 Pin=U1-8
+Removed Pin From Net: NetName=SDN Pin=U1-9
+Removed Pin From Net: NetName=GPIO0 Pin=U1-10
+Removed Pin From Net: NetName=GPIO1 Pin=U1-11
+Removed Pin From Net: NetName=nSEL Pin=U1-14
+Removed Pin From Net: NetName=MOSI Pin=U1-15
+Removed Pin From Net: NetName=MISO Pin=U1-16
+Removed Pin From Net: NetName=SCK Pin=U1-17
+Removed Pin From Net: NetName=VCC Pin=U1-18
+Removed Pin From Net: NetName=VCC Pin=U1-19
+Removed Pin From Net: NetName=VCC Pin=U1-20
+Removed Pin From Net: NetName=GND Pin=U1-21
+Removed Pin From Net: NetName=ANREAD Pin=U1-23
+Removed Pin From Net: NetName=ANVIN Pin=U1-24
+Removed Pin From Net: NetName=NRST Pin=U1-29
+Removed Pin From Net: NetName=RX Pin=U1-30
+Removed Pin From Net: NetName=TX Pin=U1-31
+Removed Pin From Net: NetName=IRQ Pin=U1-32
+Removed Member From Class: ClassName=DoorCard Member=SW2
+Removed Member From Class: ClassName=DoorCard Member=SW3
+Removed Member From Class: ClassName=DoorCard Member=SW4
+Change Component Footprint: Designator=U1 Old Footprint=32A_M New Footprint=STM-LQFP48_M
+Change Component Comment : Designator=U1 Old Comment=ATmega328P-AU New Comment=STM32F070CBT6TR
+Change Component Comment : Designator=SW1 Old Comment=B3U-1100P New Comment=PVA1 OA H2 1.2N V2
+Change component parameters: Designator = "U1"; Footprint = "STM-LQFP48_M"; UniqueID = "\YIBWOPUX"
+Change component parameters. Clean all parameters for all variants
+Change component parameters (AddParameter): Name = "ComponentLink1Description"; Value = "Manufacturer URL"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "ComponentLink1URL"; Value = "http://www.st.com/"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "ComponentLink2Description"; Value = "Datasheet"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "ComponentLink2URL"; Value = "http://www.st.com/st-web-ui/static/active/en/resource/technical/document/datasheet/DM00141386.pdf"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Core"; Value = "ARM Cortex-M0"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "D/A Converter"; Value = ""; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "DatasheetVersion"; Value = "Rev. 3"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "FLASH Size (Prog) (kB)"; Value = "128"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "I/Os (High Current)"; Value = "37"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Internal RAM Size (kB)"; Value = "16"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Mounting Technology"; Value = "Surface Mount"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Operating Frequency(F) (Processor speed) (MHz)"; Value = "48"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Package Description"; Value = "48-Pin Low Profile Quad Flat Package, Body 7 x 7 mm, Pitch 0.5 mm"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Package Reference"; Value = "LQFP48"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Packing"; Value = "Tape and Reel"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Supply Voltage(Vcc) min (V)"; Value = "2.4"; VariantName = "[No Variations]"
+Change component parameters: Designator = "SW1"; UniqueID = "\CGDFVEPC"
+Change component parameters. Clean all parameters for all variants
+Added Component: Designator=C1(CAPC0805(2012)100_M)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Case-EIA"; Value = "0805"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Case-Metric"; Value = "2012"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Max Thickness"; Value = "1 mm"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Rated Voltage"; Value = "25 V"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Technology"; Value = "SMT"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Tolerance"; Value = "±10%"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "1uF"; VariantName = "[No Variations]"
+Added Component: Designator=R1(RESC0805(2012)_L)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Case-EIA"; Value = "0805"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Case-Metric"; Value = "2012"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Power"; Value = "0.125 W"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Technology"; Value = "SMT"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Tolerance"; Value = "1 %"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "10200.00 Ohm"; VariantName = "[No Variations]"
+Added Component: Designator=R6(RESC0805(2012)_L)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Case-EIA"; Value = "0805"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Case-Metric"; Value = "2012"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Power"; Value = "0.125 W"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Technology"; Value = "SMT"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Tolerance"; Value = "1 %"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "10200.00 Ohm"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=SWINT Pin=C1-1
+Added Pin To Net: NetName=GND Pin=C1-2
+Added Pin To Net: NetName=NetD4_1 Pin=P1-2
+Added Pin To Net: NetName=SWINT Pin=R1-1
+Added Pin To Net: NetName=GND Pin=R6-1
+Added Pin To Net: NetName=VCC Pin=U1-1
+Added Pin To Net: NetName=NRST Pin=U1-7
+Added Pin To Net: NetName=GND Pin=U1-8
+Added Pin To Net: NetName=VCC Pin=U1-9
+Added Pin To Net: NetName=SWINT Pin=U1-10
+Added Pin To Net: NetName=NetR3_2 Pin=U1-11
+Added Pin To Net: NetName=NetR4_2 Pin=U1-12
+Added Pin To Net: NetName=NetR5_2 Pin=U1-13
+Added Pin To Net: NetName=ANREAD Pin=U1-18
+Added Pin To Net: NetName=ANVIN Pin=U1-19
+Added Pin To Net: NetName=RX Pin=U1-21
+Added Pin To Net: NetName=GPIO1 Pin=U1-22
+Added Pin To Net: NetName=GND Pin=U1-23
+Added Pin To Net: NetName=VCC Pin=U1-24
+Added Pin To Net: NetName=IRQ Pin=U1-25
+Added Pin To Net: NetName=nSEL Pin=U1-26
+Added Pin To Net: NetName=GND Pin=U1-35
+Added Pin To Net: NetName=VCC Pin=U1-36
+Added Pin To Net: NetName=SCK Pin=U1-39
+Added Pin To Net: NetName=MISO Pin=U1-40
+Added Pin To Net: NetName=MOSI Pin=U1-41
+Added Pin To Net: NetName=SDN Pin=U1-43
+Added Pin To Net: NetName=GPIO0 Pin=U1-45
+Added Pin To Net: NetName=TX Pin=U1-46
+Added Pin To Net: NetName=GND Pin=U1-47
+Added Pin To Net: NetName=VCC Pin=U1-48
+Added Pin To Net: NetName=BOOT0 Pin=P1-3
+Added Pin To Net: NetName=BOOT0 Pin=R6-2
+Added Pin To Net: NetName=BOOT0 Pin=U1-44
+Added Net: Name=BOOT0
+Added Member To Class: ClassName=DoorCard Member=Component C1 1uF
+Added Member To Class: ClassName=DoorCard Member=Component R1 10k
+Added Member To Class: ClassName=DoorCard Member=Component R6 10k
+Added Member To Class: ClassName=DoorCard Member=Component SW1 PVA1 OA H2 1.2N V2
+Added Room: Name=DoorCard

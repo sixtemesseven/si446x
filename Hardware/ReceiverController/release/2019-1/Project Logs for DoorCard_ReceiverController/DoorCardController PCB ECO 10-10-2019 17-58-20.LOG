@@ -1,0 +1,21 @@
+Removed Pin From Net: NetName=GND Pin=P3-1
+Removed Pin From Net: NetName=NetF1_2 Pin=P3-2
+Removed Pin From Net: NetName=GND Pin=P3-3
+Change Component Footprint: Designator=P3 Old Footprint=MOLX-22-27-2031_V New Footprint=SCREW-5.0-2WAYS_V
+Change Component Comment : Designator=P3 Old Comment=22-27-2031 New Comment=SCREW-5.0/5.08 2WAYS
+Change component parameters: Designator = "P3"; Footprint = "SCREW-5.0-2WAYS_V"; UniqueID = "\MAGWXXYM"
+Change component parameters. Clean all parameters for all variants
+Change component parameters (AddParameter): Name = "ComponentLink1Description"; Value = "Datasheet"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "ComponentLink1URL"; Value = "5mm screw terminal in SVN"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Contact Resistance"; Value = "20 mOhm"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Insulation Resistance"; Value = "5000 MOhm / 1000 V"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer"; Value = "No Vendor"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Mounting Technology"; Value = "Through Hole"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "PackageDescription"; Value = "Socket, Screw Terminal Block, 2 Way, Pitch 5 mm, 90 Degree Angle, Through-Hole"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "PartNumber"; Value = "SCREW-5.0/5.08 2WAYS"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Poles"; Value = "2"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Rated Current"; Value = "25 A"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Rated Voltage"; Value = "300 V"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Temperature Range"; Value = "-40 to 105 degC"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=NetF1_2 Pin=P3-1
+Added Pin To Net: NetName=GND Pin=P3-2

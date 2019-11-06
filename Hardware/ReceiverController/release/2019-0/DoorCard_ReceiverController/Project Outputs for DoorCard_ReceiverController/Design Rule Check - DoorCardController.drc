@@ -1,0 +1,188 @@
+Protel Design System Design Rule Check
+PCB File : D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc
+Date     : 10/10/2019
+Time     : 20:56:43
+
+Processing Rule : Clearance Constraint (Gap=0.2mm) (All),(All)
+Rule Violations :0
+
+Processing Rule : Short-Circuit Constraint (Allowed=No) (All),(All)
+Rule Violations :0
+
+Processing Rule : Un-Routed Net Constraint ( (All) )
+Rule Violations :0
+
+Processing Rule : Modified Polygon (Allow modified: No), (Allow shelved: No)
+Rule Violations :0
+
+Processing Rule : Width Constraint (Min=0.254mm) (Max=10mm) (Preferred=0.254mm) (All)
+Rule Violations :0
+
+Processing Rule : Power Plane Connect Rule(Direct Connect )(Expansion=0.508mm) (Conductor Width=0.254mm) (Air Gap=0.254mm) (Entries=4) (All)
+Rule Violations :0
+
+Processing Rule : Hole Size Constraint (Min=0.025mm) (Max=2.54mm) (All)
+   Violation between Hole Size Constraint: (3.3mm > 2.54mm) Pad Free-1(28mm,37.5mm) on Multi-Layer Actual Hole Size = 3.3mm
+   Violation between Hole Size Constraint: (3.3mm > 2.54mm) Pad Free-2(119.5mm,37.5mm) on Multi-Layer Actual Hole Size = 3.3mm
+   Violation between Hole Size Constraint: (3.3mm > 2.54mm) Pad Free-3(119.5mm,124.25mm) on Multi-Layer Actual Hole Size = 3.3mm
+   Violation between Hole Size Constraint: (3.3mm > 2.54mm) Pad Free-4(28mm,124mm) on Multi-Layer Actual Hole Size = 3.3mm
+   Violation between Hole Size Constraint: (3.3mm > 2.54mm) Pad Free-5(119.5mm,77.5mm) on Multi-Layer Actual Hole Size = 3.3mm
+   Violation between Hole Size Constraint: (3.3mm > 2.54mm) Pad Free-6(28mm,100.59mm) on Multi-Layer Actual Hole Size = 3.3mm
+   Violation between Hole Size Constraint: (3.2mm > 2.54mm) Pad J2-SH(112.42mm,44.032mm) on Multi-Layer Actual Hole Size = 3.2mm
+   Violation between Hole Size Constraint: (3.2mm > 2.54mm) Pad J2-SH(112.42mm,69.032mm) on Multi-Layer Actual Hole Size = 3.2mm
+Rule Violations :8
+
+Processing Rule : Hole To Hole Clearance (Gap=0.254mm) (All),(All)
+Rule Violations :0
+
+Processing Rule : Minimum Solder Mask Sliver (Gap=0.254mm) (All),(All)
+   Violation between Minimum Solder Mask Sliver Constraint: (0.097mm < 0.254mm) Between Pad U2-1(69.385mm,104.45mm) on Top Layer And Pad U2-2(70.035mm,104.45mm) on Top Layer [Top Solder] Mask Sliver [0.097mm]
+   Violation between Minimum Solder Mask Sliver Constraint: (0.097mm < 0.254mm) Between Pad U2-10(75.235mm,104.45mm) on Top Layer And Pad U2-9(74.585mm,104.45mm) on Top Layer [Top Solder] Mask Sliver [0.097mm]
+   Violation between Minimum Solder Mask Sliver Constraint: (0.097mm < 0.254mm) Between Pad U2-11(75.235mm,110.25mm) on Top Layer And Pad U2-12(74.585mm,110.25mm) on Top Layer [Top Solder] Mask Sliver [0.097mm]
+   Violation between Minimum Solder Mask Sliver Constraint: (0.097mm < 0.254mm) Between Pad U2-12(74.585mm,110.25mm) on Top Layer And Pad U2-13(73.935mm,110.25mm) on Top Layer [Top Solder] Mask Sliver [0.097mm]
+   Violation between Minimum Solder Mask Sliver Constraint: (0.097mm < 0.254mm) Between Pad U2-13(73.935mm,110.25mm) on Top Layer And Pad U2-14(73.285mm,110.25mm) on Top Layer [Top Solder] Mask Sliver [0.097mm]
+   Violation between Minimum Solder Mask Sliver Constraint: (0.097mm < 0.254mm) Between Pad U2-14(73.285mm,110.25mm) on Top Layer And Pad U2-15(72.635mm,110.25mm) on Top Layer [Top Solder] Mask Sliver [0.097mm]
+   Violation between Minimum Solder Mask Sliver Constraint: (0.097mm < 0.254mm) Between Pad U2-15(72.635mm,110.25mm) on Top Layer And Pad U2-16(71.985mm,110.25mm) on Top Layer [Top Solder] Mask Sliver [0.097mm]
+   Violation between Minimum Solder Mask Sliver Constraint: (0.097mm < 0.254mm) Between Pad U2-16(71.985mm,110.25mm) on Top Layer And Pad U2-17(71.335mm,110.25mm) on Top Layer [Top Solder] Mask Sliver [0.097mm]
+   Violation between Minimum Solder Mask Sliver Constraint: (0.097mm < 0.254mm) Between Pad U2-17(71.335mm,110.25mm) on Top Layer And Pad U2-18(70.685mm,110.25mm) on Top Layer [Top Solder] Mask Sliver [0.097mm]
+   Violation between Minimum Solder Mask Sliver Constraint: (0.097mm < 0.254mm) Between Pad U2-18(70.685mm,110.25mm) on Top Layer And Pad U2-19(70.035mm,110.25mm) on Top Layer [Top Solder] Mask Sliver [0.097mm]
+   Violation between Minimum Solder Mask Sliver Constraint: (0.097mm < 0.254mm) Between Pad U2-19(70.035mm,110.25mm) on Top Layer And Pad U2-20(69.385mm,110.25mm) on Top Layer [Top Solder] Mask Sliver [0.097mm]
+   Violation between Minimum Solder Mask Sliver Constraint: (0.097mm < 0.254mm) Between Pad U2-2(70.035mm,104.45mm) on Top Layer And Pad U2-3(70.685mm,104.45mm) on Top Layer [Top Solder] Mask Sliver [0.097mm]
+   Violation between Minimum Solder Mask Sliver Constraint: (0.097mm < 0.254mm) Between Pad U2-3(70.685mm,104.45mm) on Top Layer And Pad U2-4(71.335mm,104.45mm) on Top Layer [Top Solder] Mask Sliver [0.097mm]
+   Violation between Minimum Solder Mask Sliver Constraint: (0.097mm < 0.254mm) Between Pad U2-4(71.335mm,104.45mm) on Top Layer And Pad U2-5(71.985mm,104.45mm) on Top Layer [Top Solder] Mask Sliver [0.097mm]
+   Violation between Minimum Solder Mask Sliver Constraint: (0.097mm < 0.254mm) Between Pad U2-5(71.985mm,104.45mm) on Top Layer And Pad U2-6(72.635mm,104.45mm) on Top Layer [Top Solder] Mask Sliver [0.097mm]
+   Violation between Minimum Solder Mask Sliver Constraint: (0.097mm < 0.254mm) Between Pad U2-6(72.635mm,104.45mm) on Top Layer And Pad U2-7(73.285mm,104.45mm) on Top Layer [Top Solder] Mask Sliver [0.097mm]
+   Violation between Minimum Solder Mask Sliver Constraint: (0.097mm < 0.254mm) Between Pad U2-7(73.285mm,104.45mm) on Top Layer And Pad U2-8(73.935mm,104.45mm) on Top Layer [Top Solder] Mask Sliver [0.097mm]
+   Violation between Minimum Solder Mask Sliver Constraint: (0.097mm < 0.254mm) Between Pad U2-8(73.935mm,104.45mm) on Top Layer And Pad U2-9(74.585mm,104.45mm) on Top Layer [Top Solder] Mask Sliver [0.097mm]
+Rule Violations :18
+
+Processing Rule : Silk To Solder Mask (Clearance=0.254mm) (IsPad),(All)
+   Violation between Silk To Solder Mask Clearance Constraint: (0.175mm < 0.254mm) Between Pad C1-1(71.985mm,99.35mm) on Top Layer And Track (71.31mm,100.3mm)(71.31mm,100.4mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.175mm]
+   Violation between Silk To Solder Mask Clearance Constraint: (0.175mm < 0.254mm) Between Pad C1-1(71.985mm,99.35mm) on Top Layer And Track (72.66mm,100.3mm)(72.66mm,100.4mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.175mm]
+   Violation between Silk To Solder Mask Clearance Constraint: (0.175mm < 0.254mm) Between Pad C1-2(71.985mm,101.35mm) on Top Layer And Track (71.31mm,100.3mm)(71.31mm,100.4mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.175mm]
+   Violation between Silk To Solder Mask Clearance Constraint: (0.193mm < 0.254mm) Between Pad C1-2(71.985mm,101.35mm) on Top Layer And Track (72.66mm,100.3mm)(72.66mm,100.4mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.193mm]
+   Violation between Silk To Solder Mask Clearance Constraint: (0.175mm < 0.254mm) Between Pad C2-1(71.335mm,115.35mm) on Top Layer And Track (70.66mm,114.3mm)(70.66mm,114.4mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.175mm]
+   Violation between Silk To Solder Mask Clearance Constraint: (0.193mm < 0.254mm) Between Pad C2-1(71.335mm,115.35mm) on Top Layer And Track (72.01mm,114.3mm)(72.01mm,114.4mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.193mm]
+   Violation between Silk To Solder Mask Clearance Constraint: (0.175mm < 0.254mm) Between Pad C2-2(71.335mm,113.35mm) on Top Layer And Track (70.66mm,114.3mm)(70.66mm,114.4mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.175mm]
+   Violation between Silk To Solder Mask Clearance Constraint: (0.175mm < 0.254mm) Between Pad C2-2(71.335mm,113.35mm) on Top Layer And Track (72.01mm,114.3mm)(72.01mm,114.4mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.175mm]
+   Violation between Silk To Solder Mask Clearance Constraint: (0.175mm < 0.254mm) Between Pad C3-1(73.989mm,115.35mm) on Top Layer And Track (73.314mm,114.3mm)(73.314mm,114.4mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.175mm]
+   Violation between Silk To Solder Mask Clearance Constraint: (0.193mm < 0.254mm) Between Pad C3-1(73.989mm,115.35mm) on Top Layer And Track (74.664mm,114.3mm)(74.664mm,114.4mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.193mm]
+   Violation between Silk To Solder Mask Clearance Constraint: (0.175mm < 0.254mm) Between Pad C3-2(73.989mm,113.35mm) on Top Layer And Track (73.314mm,114.3mm)(73.314mm,114.4mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.175mm]
+   Violation between Silk To Solder Mask Clearance Constraint: (0.175mm < 0.254mm) Between Pad C3-2(73.989mm,113.35mm) on Top Layer And Track (74.664mm,114.3mm)(74.664mm,114.4mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.175mm]
+   Violation between Silk To Solder Mask Clearance Constraint: (0.098mm < 0.254mm) Between Pad SW1-1(110.561mm,88.672mm) on Top Layer And Track (105.161mm,87.812mm)(111.471mm,87.812mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.098mm]
+   Violation between Silk To Solder Mask Clearance Constraint: (0.089mm < 0.254mm) Between Pad SW1-2(110.561mm,80.662mm) on Top Layer And Track (105.161mm,81.502mm)(111.471mm,81.502mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.089mm]
+   Violation between Silk To Solder Mask Clearance Constraint: (0.098mm < 0.254mm) Between Pad SW1-3(106.071mm,88.672mm) on Top Layer And Track (105.161mm,87.812mm)(111.471mm,87.812mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.098mm]
+   Violation between Silk To Solder Mask Clearance Constraint: (0.089mm < 0.254mm) Between Pad SW1-4(106.071mm,80.662mm) on Top Layer And Track (105.161mm,81.502mm)(111.471mm,81.502mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.089mm]
+   Violation between Silk To Solder Mask Clearance Constraint: (0.243mm < 0.254mm) Between Pad SW2-1(69.275mm,124.25mm) on Top Layer And Track (70.135mm,118.85mm)(70.135mm,125.16mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.243mm]
+   Violation between Silk To Solder Mask Clearance Constraint: (0.111mm < 0.254mm) Between Pad SW2-2(77.285mm,124.25mm) on Top Layer And Track (76.445mm,118.85mm)(76.445mm,125.16mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.111mm]
+   Violation between Silk To Solder Mask Clearance Constraint: (0.243mm < 0.254mm) Between Pad SW2-3(69.275mm,119.76mm) on Top Layer And Track (70.135mm,118.85mm)(70.135mm,125.16mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.243mm]
+   Violation between Silk To Solder Mask Clearance Constraint: (0.111mm < 0.254mm) Between Pad SW2-4(77.285mm,119.76mm) on Top Layer And Track (76.445mm,118.85mm)(76.445mm,125.16mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.111mm]
+   Violation between Silk To Solder Mask Clearance Constraint: (0.243mm < 0.254mm) Between Pad SW3-1(56.99mm,124.25mm) on Top Layer And Track (57.85mm,118.85mm)(57.85mm,125.16mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.243mm]
+   Violation between Silk To Solder Mask Clearance Constraint: (0.111mm < 0.254mm) Between Pad SW3-2(65mm,124.25mm) on Top Layer And Track (64.16mm,118.85mm)(64.16mm,125.16mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.111mm]
+   Violation between Silk To Solder Mask Clearance Constraint: (0.243mm < 0.254mm) Between Pad SW3-3(56.99mm,119.76mm) on Top Layer And Track (57.85mm,118.85mm)(57.85mm,125.16mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.243mm]
+   Violation between Silk To Solder Mask Clearance Constraint: (0.111mm < 0.254mm) Between Pad SW3-4(65mm,119.76mm) on Top Layer And Track (64.16mm,118.85mm)(64.16mm,125.16mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.111mm]
+   Violation between Silk To Solder Mask Clearance Constraint: (0.131mm < 0.254mm) Between Pad SW4_R?1-1(86.51mm,87.987mm) on Top Layer And Track (85.65mm,87.077mm)(85.65mm,93.387mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.131mm]
+   Violation between Silk To Solder Mask Clearance Constraint: (0.223mm < 0.254mm) Between Pad SW4_R?1-2(78.5mm,87.987mm) on Top Layer And Track (79.34mm,87.077mm)(79.34mm,93.387mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.223mm]
+   Violation between Silk To Solder Mask Clearance Constraint: (0.131mm < 0.254mm) Between Pad SW4_R?1-3(86.51mm,92.477mm) on Top Layer And Track (85.65mm,87.077mm)(85.65mm,93.387mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.131mm]
+   Violation between Silk To Solder Mask Clearance Constraint: (0.223mm < 0.254mm) Between Pad SW4_R?1-4(78.5mm,92.477mm) on Top Layer And Track (79.34mm,87.077mm)(79.34mm,93.387mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.223mm]
+   Violation between Silk To Solder Mask Clearance Constraint: (0.131mm < 0.254mm) Between Pad SW4_R?2-1(86.471mm,77.5mm) on Top Layer And Track (85.611mm,76.59mm)(85.611mm,82.9mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.131mm]
+   Violation between Silk To Solder Mask Clearance Constraint: (0.223mm < 0.254mm) Between Pad SW4_R?2-2(78.461mm,77.5mm) on Top Layer And Track (79.301mm,76.59mm)(79.301mm,82.9mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.223mm]
+   Violation between Silk To Solder Mask Clearance Constraint: (0.131mm < 0.254mm) Between Pad SW4_R?2-3(86.471mm,81.99mm) on Top Layer And Track (85.611mm,76.59mm)(85.611mm,82.9mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.131mm]
+   Violation between Silk To Solder Mask Clearance Constraint: (0.223mm < 0.254mm) Between Pad SW4_R?2-4(78.461mm,81.99mm) on Top Layer And Track (79.301mm,76.59mm)(79.301mm,82.9mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.223mm]
+   Violation between Silk To Solder Mask Clearance Constraint: (0.131mm < 0.254mm) Between Pad SW4_R?3-1(86.471mm,67.125mm) on Top Layer And Track (85.611mm,66.215mm)(85.611mm,72.525mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.131mm]
+   Violation between Silk To Solder Mask Clearance Constraint: (0.223mm < 0.254mm) Between Pad SW4_R?3-2(78.461mm,67.125mm) on Top Layer And Track (79.301mm,66.215mm)(79.301mm,72.525mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.223mm]
+   Violation between Silk To Solder Mask Clearance Constraint: (0.131mm < 0.254mm) Between Pad SW4_R?3-3(86.471mm,71.615mm) on Top Layer And Track (85.611mm,66.215mm)(85.611mm,72.525mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.131mm]
+   Violation between Silk To Solder Mask Clearance Constraint: (0.223mm < 0.254mm) Between Pad SW4_R?3-4(78.461mm,71.615mm) on Top Layer And Track (79.301mm,66.215mm)(79.301mm,72.525mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.223mm]
+   Violation between Silk To Solder Mask Clearance Constraint: (0.131mm < 0.254mm) Between Pad SW4_R?4-1(86.51mm,56.725mm) on Top Layer And Track (85.65mm,55.815mm)(85.65mm,62.125mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.131mm]
+   Violation between Silk To Solder Mask Clearance Constraint: (0.223mm < 0.254mm) Between Pad SW4_R?4-2(78.5mm,56.725mm) on Top Layer And Track (79.34mm,55.815mm)(79.34mm,62.125mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.223mm]
+   Violation between Silk To Solder Mask Clearance Constraint: (0.131mm < 0.254mm) Between Pad SW4_R?4-3(86.51mm,61.215mm) on Top Layer And Track (85.65mm,55.815mm)(85.65mm,62.125mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.131mm]
+   Violation between Silk To Solder Mask Clearance Constraint: (0.223mm < 0.254mm) Between Pad SW4_R?4-4(78.5mm,61.215mm) on Top Layer And Track (79.34mm,55.815mm)(79.34mm,62.125mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.223mm]
+   Violation between Silk To Solder Mask Clearance Constraint: (0.131mm < 0.254mm) Between Pad SW4_R?5-1(86.51mm,46.275mm) on Top Layer And Track (85.65mm,45.365mm)(85.65mm,51.675mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.131mm]
+   Violation between Silk To Solder Mask Clearance Constraint: (0.223mm < 0.254mm) Between Pad SW4_R?5-2(78.5mm,46.275mm) on Top Layer And Track (79.34mm,45.365mm)(79.34mm,51.675mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.223mm]
+   Violation between Silk To Solder Mask Clearance Constraint: (0.131mm < 0.254mm) Between Pad SW4_R?5-3(86.51mm,50.765mm) on Top Layer And Track (85.65mm,45.365mm)(85.65mm,51.675mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.131mm]
+   Violation between Silk To Solder Mask Clearance Constraint: (0.223mm < 0.254mm) Between Pad SW4_R?5-4(78.5mm,50.765mm) on Top Layer And Track (79.34mm,45.365mm)(79.34mm,51.675mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.223mm]
+   Violation between Silk To Solder Mask Clearance Constraint: (Collision < 0.254mm) Between Pad U3-1(95.312mm,117.237mm) on Top Layer And Track (95.312mm,104.968mm)(95.312mm,118.238mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mm]
+   Violation between Silk To Solder Mask Clearance Constraint: (Collision < 0.254mm) Between Pad U3-10(95.312mm,105.807mm) on Top Layer And Track (95.312mm,104.968mm)(95.312mm,118.238mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mm]
+   Violation between Silk To Solder Mask Clearance Constraint: (Collision < 0.254mm) Between Pad U3-11(113.762mm,108.118mm) on Top Layer And Track (113.762mm,104.968mm)(113.762mm,118.238mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mm]
+   Violation between Silk To Solder Mask Clearance Constraint: (Collision < 0.254mm) Between Pad U3-12(113.762mm,110.608mm) on Top Layer And Track (113.762mm,104.968mm)(113.762mm,118.238mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mm]
+   Violation between Silk To Solder Mask Clearance Constraint: (Collision < 0.254mm) Between Pad U3-2(95.312mm,115.967mm) on Top Layer And Track (95.312mm,104.968mm)(95.312mm,118.238mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mm]
+   Violation between Silk To Solder Mask Clearance Constraint: (Collision < 0.254mm) Between Pad U3-3(95.312mm,114.697mm) on Top Layer And Track (95.312mm,104.968mm)(95.312mm,118.238mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mm]
+   Violation between Silk To Solder Mask Clearance Constraint: (Collision < 0.254mm) Between Pad U3-4(95.312mm,113.427mm) on Top Layer And Track (95.312mm,104.968mm)(95.312mm,118.238mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mm]
+   Violation between Silk To Solder Mask Clearance Constraint: (Collision < 0.254mm) Between Pad U3-5(95.312mm,112.157mm) on Top Layer And Track (95.312mm,104.968mm)(95.312mm,118.238mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mm]
+   Violation between Silk To Solder Mask Clearance Constraint: (Collision < 0.254mm) Between Pad U3-6(95.312mm,110.887mm) on Top Layer And Track (95.312mm,104.968mm)(95.312mm,118.238mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mm]
+   Violation between Silk To Solder Mask Clearance Constraint: (Collision < 0.254mm) Between Pad U3-7(95.312mm,109.617mm) on Top Layer And Track (95.312mm,104.968mm)(95.312mm,118.238mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mm]
+   Violation between Silk To Solder Mask Clearance Constraint: (Collision < 0.254mm) Between Pad U3-8(95.312mm,108.347mm) on Top Layer And Track (95.312mm,104.968mm)(95.312mm,118.238mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mm]
+   Violation between Silk To Solder Mask Clearance Constraint: (Collision < 0.254mm) Between Pad U3-9(95.312mm,107.077mm) on Top Layer And Track (95.312mm,104.968mm)(95.312mm,118.238mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mm]
+Rule Violations :56
+
+Processing Rule : Silk to Silk (Clearance=0.254mm) (All),(All)
+Rule Violations :0
+
+Processing Rule : Net Antennae (Tolerance=0mm) (All)
+   Violation between Net Antennae: Track (87.83mm,108.124mm)(88.15mm,108.444mm) on Bottom Layer 
+Rule Violations :1
+
+Processing Rule : Room R?2 (Bounding Region = (29.461mm, 74.99mm, 88.461mm, 84.99mm) (InComponentClass('R?2'))
+   Violation between Room Definition: Between Room R?2 (Bounding Region = (29.461mm, 74.99mm, 88.461mm, 84.99mm) (InComponentClass('R?2')) And Small Component P4_R?2-SCREW-5.0/5.08 2WAYS (35.461mm,79.8mm) on Top Layer 
+Rule Violations :1
+
+Processing Rule : Room R?1 (Bounding Region = (29.5mm, 85.287mm, 88.5mm, 95.287mm) (InComponentClass('R?1'))
+   Violation between Room Definition: Between Room R?1 (Bounding Region = (29.5mm, 85.287mm, 88.5mm, 95.287mm) (InComponentClass('R?1')) And Small Component P4_R?1-SCREW-5.0/5.08 2WAYS (35.5mm,90.287mm) on Top Layer 
+Rule Violations :1
+
+Processing Rule : Room DoorCard_ReceiverController (Bounding Region = (191.389mm, 0.381mm, 409.067mm, 34.671mm) (InComponentClass('DoorCard_ReceiverController'))
+   Violation between Room Definition: Between Component J2-DSUB_9P_THT (112.42mm,56.532mm) on Top Layer And Room DoorCard_ReceiverController (Bounding Region = (191.389mm, 0.381mm, 409.067mm, 34.671mm) (InComponentClass('DoorCard_ReceiverController')) 
+   Violation between Room Definition: Between Component SW1-DTSM-61NT/R (108.311mm,84.662mm) on Top Layer And Room DoorCard_ReceiverController (Bounding Region = (191.389mm, 0.381mm, 409.067mm, 34.671mm) (InComponentClass('DoorCard_ReceiverController')) 
+   Violation between Room Definition: Between Component SW2-DTSM-61NT/R (73.285mm,122mm) on Top Layer And Room DoorCard_ReceiverController (Bounding Region = (191.389mm, 0.381mm, 409.067mm, 34.671mm) (InComponentClass('DoorCard_ReceiverController')) 
+   Violation between Room Definition: Between Component SW3-DTSM-61NT/R (61mm,122mm) on Top Layer And Room DoorCard_ReceiverController (Bounding Region = (191.389mm, 0.381mm, 409.067mm, 34.671mm) (InComponentClass('DoorCard_ReceiverController')) 
+   Violation between Room Definition: Between Component U1-WS2812B (100.95mm,85.65mm) on Top Layer And Room DoorCard_ReceiverController (Bounding Region = (191.389mm, 0.381mm, 409.067mm, 34.671mm) (InComponentClass('DoorCard_ReceiverController')) 
+   Violation between Room Definition: Between Component U4-LT1117CST-3.3#TRPBF (46.65mm,119.5mm) on Top Layer And Room DoorCard_ReceiverController (Bounding Region = (191.389mm, 0.381mm, 409.067mm, 34.671mm) (InComponentClass('DoorCard_ReceiverController')) 
+   Violation between Room Definition: Between DIP Component P1-30310-6002HB (85.73mm,111.46mm) on Top Layer And Room DoorCard_ReceiverController (Bounding Region = (191.389mm, 0.381mm, 409.067mm, 34.671mm) (InComponentClass('DoorCard_ReceiverController')) 
+   Violation between Room Definition: Between Edge Component J1-32K145-400L5 (122mm,108.118mm) on Top Layer And Room DoorCard_ReceiverController (Bounding Region = (191.389mm, 0.381mm, 409.067mm, 34.671mm) (InComponentClass('DoorCard_ReceiverController')) 
+   Violation between Room Definition: Between Room DoorCard_ReceiverController (Bounding Region = (191.389mm, 0.381mm, 409.067mm, 34.671mm) (InComponentClass('DoorCard_ReceiverController')) And SIP Component P2-PHT-106-01-L-S (62.014mm,100.59mm) on Top Layer 
+   Violation between Room Definition: Between Room DoorCard_ReceiverController (Bounding Region = (191.389mm, 0.381mm, 409.067mm, 34.671mm) (InComponentClass('DoorCard_ReceiverController')) And Small Component C6-ECA-1HM470 (46.5mm,107.5mm) on Top Layer 
+   Violation between Room Definition: Between Room DoorCard_ReceiverController (Bounding Region = (191.389mm, 0.381mm, 409.067mm, 34.671mm) (InComponentClass('DoorCard_ReceiverController')) And Small Component P3-SCREW-5.0/5.08 2WAYS (35.5mm,110.25mm) on Top Layer 
+   Violation between Room Definition: Between Room DoorCard_ReceiverController (Bounding Region = (191.389mm, 0.381mm, 409.067mm, 34.671mm) (InComponentClass('DoorCard_ReceiverController')) And SMT SIP Component U3-Si4463 (95.312mm,105.807mm) on Top Layer 
+   Violation between Room Definition: Between Room DoorCard_ReceiverController (Bounding Region = (191.389mm, 0.381mm, 409.067mm, 34.671mm) (InComponentClass('DoorCard_ReceiverController')) And SMT Small Component C1-1uF (71.985mm,100.35mm) on Top Layer 
+   Violation between Room Definition: Between Room DoorCard_ReceiverController (Bounding Region = (191.389mm, 0.381mm, 409.067mm, 34.671mm) (InComponentClass('DoorCard_ReceiverController')) And SMT Small Component C2-1uF (71.335mm,114.35mm) on Top Layer 
+   Violation between Room Definition: Between Room DoorCard_ReceiverController (Bounding Region = (191.389mm, 0.381mm, 409.067mm, 34.671mm) (InComponentClass('DoorCard_ReceiverController')) And SMT Small Component C3-1uF (73.989mm,114.35mm) on Top Layer 
+   Violation between Room Definition: Between Room DoorCard_ReceiverController (Bounding Region = (191.389mm, 0.381mm, 409.067mm, 34.671mm) (InComponentClass('DoorCard_ReceiverController')) And SMT Small Component C4-10uF (50.35mm,113.5mm) on Top Layer 
+   Violation between Room Definition: Between Room DoorCard_ReceiverController (Bounding Region = (191.389mm, 0.381mm, 409.067mm, 34.671mm) (InComponentClass('DoorCard_ReceiverController')) And SMT Small Component C5-10uF (45.25mm,113.5mm) on Top Layer 
+   Violation between Room Definition: Between Room DoorCard_ReceiverController (Bounding Region = (191.389mm, 0.381mm, 409.067mm, 34.671mm) (InComponentClass('DoorCard_ReceiverController')) And SMT Small Component D1-MMSD4148T3G (57.102mm,103.21mm) on Top Layer 
+   Violation between Room Definition: Between Room DoorCard_ReceiverController (Bounding Region = (191.389mm, 0.381mm, 409.067mm, 34.671mm) (InComponentClass('DoorCard_ReceiverController')) And SMT Small Component D2-MMSD4148T3G (47.75mm,100.5mm) on Top Layer 
+   Violation between Room Definition: Between Room DoorCard_ReceiverController (Bounding Region = (191.389mm, 0.381mm, 409.067mm, 34.671mm) (InComponentClass('DoorCard_ReceiverController')) And SMT Small Component DS1-TLMS1100-GS08 (96.45mm,97.788mm) on Top Layer 
+   Violation between Room Definition: Between Room DoorCard_ReceiverController (Bounding Region = (191.389mm, 0.381mm, 409.067mm, 34.671mm) (InComponentClass('DoorCard_ReceiverController')) And SMT Small Component DS2-TLMS1100-GS08 (98.525mm,97.788mm) on Top Layer 
+   Violation between Room Definition: Between Room DoorCard_ReceiverController (Bounding Region = (191.389mm, 0.381mm, 409.067mm, 34.671mm) (InComponentClass('DoorCard_ReceiverController')) And SMT Small Component DS3-TLMS1100-GS08 (51.75mm,116.1mm) on Top Layer 
+   Violation between Room Definition: Between Room DoorCard_ReceiverController (Bounding Region = (191.389mm, 0.381mm, 409.067mm, 34.671mm) (InComponentClass('DoorCard_ReceiverController')) And SMT Small Component DS5-TLMS1100-GS08 (100mm,57.012mm) on Top Layer 
+   Violation between Room Definition: Between Room DoorCard_ReceiverController (Bounding Region = (191.389mm, 0.381mm, 409.067mm, 34.671mm) (InComponentClass('DoorCard_ReceiverController')) And SMT Small Component DS6-TLMS1100-GS08 (100mm,59.012mm) on Top Layer 
+   Violation between Room Definition: Between Room DoorCard_ReceiverController (Bounding Region = (191.389mm, 0.381mm, 409.067mm, 34.671mm) (InComponentClass('DoorCard_ReceiverController')) And SMT Small Component F1-1206L012WR (44.75mm,100.5mm) on Top Layer 
+   Violation between Room Definition: Between Room DoorCard_ReceiverController (Bounding Region = (191.389mm, 0.381mm, 409.067mm, 34.671mm) (InComponentClass('DoorCard_ReceiverController')) And SMT Small Component R10-330 (103mm,59.012mm) on Top Layer 
+   Violation between Room Definition: Between Room DoorCard_ReceiverController (Bounding Region = (191.389mm, 0.381mm, 409.067mm, 34.671mm) (InComponentClass('DoorCard_ReceiverController')) And SMT Small Component R1-330 (96.45mm,100.788mm) on Top Layer 
+   Violation between Room Definition: Between Room DoorCard_ReceiverController (Bounding Region = (191.389mm, 0.381mm, 409.067mm, 34.671mm) (InComponentClass('DoorCard_ReceiverController')) And SMT Small Component R2-330 (98.525mm,100.788mm) on Top Layer 
+   Violation between Room Definition: Between Room DoorCard_ReceiverController (Bounding Region = (191.389mm, 0.381mm, 409.067mm, 34.671mm) (InComponentClass('DoorCard_ReceiverController')) And SMT Small Component R3-10k (106.071mm,91.662mm) on Top Layer 
+   Violation between Room Definition: Between Room DoorCard_ReceiverController (Bounding Region = (191.389mm, 0.381mm, 409.067mm, 34.671mm) (InComponentClass('DoorCard_ReceiverController')) And SMT Small Component R4-10k (58.139mm,113.29mm) on Top Layer 
+   Violation between Room Definition: Between Room DoorCard_ReceiverController (Bounding Region = (191.389mm, 0.381mm, 409.067mm, 34.671mm) (InComponentClass('DoorCard_ReceiverController')) And SMT Small Component R5-330 (103mm,57.012mm) on Top Layer 
+   Violation between Room Definition: Between Room DoorCard_ReceiverController (Bounding Region = (191.389mm, 0.381mm, 409.067mm, 34.671mm) (InComponentClass('DoorCard_ReceiverController')) And SMT Small Component R6-10k (57.864mm,105.485mm) on Top Layer 
+   Violation between Room Definition: Between Room DoorCard_ReceiverController (Bounding Region = (191.389mm, 0.381mm, 409.067mm, 34.671mm) (InComponentClass('DoorCard_ReceiverController')) And SMT Small Component R7-10k (51.75mm,119.5mm) on Top Layer 
+   Violation between Room Definition: Between Room DoorCard_ReceiverController (Bounding Region = (191.389mm, 0.381mm, 409.067mm, 34.671mm) (InComponentClass('DoorCard_ReceiverController')) And SOIC Component U2-STM32F070F6P6 (72.31mm,107.35mm) on Top Layer 
+Rule Violations :34
+
+Processing Rule : Room R?5 (Bounding Region = (29.5mm, 43.765mm, 88.5mm, 53.765mm) (InComponentClass('R?5'))
+   Violation between Room Definition: Between Room R?5 (Bounding Region = (29.5mm, 43.765mm, 88.5mm, 53.765mm) (InComponentClass('R?5')) And Small Component P4_R?5-SCREW-5.0/5.08 2WAYS (35.5mm,48.575mm) on Top Layer 
+Rule Violations :1
+
+Processing Rule : Room R?4 (Bounding Region = (29.5mm, 54.215mm, 88.5mm, 64.215mm) (InComponentClass('R?4'))
+   Violation between Room Definition: Between Room R?4 (Bounding Region = (29.5mm, 54.215mm, 88.5mm, 64.215mm) (InComponentClass('R?4')) And Small Component P4_R?4-SCREW-5.0/5.08 2WAYS (35.5mm,59.025mm) on Top Layer 
+Rule Violations :1
+
+Processing Rule : Room R?3 (Bounding Region = (29.461mm, 64.615mm, 88.461mm, 74.615mm) (InComponentClass('R?3'))
+   Violation between Room Definition: Between Room R?3 (Bounding Region = (29.461mm, 64.615mm, 88.461mm, 74.615mm) (InComponentClass('R?3')) And Small Component P4_R?3-SCREW-5.0/5.08 2WAYS (35.461mm,69.425mm) on Top Layer 
+Rule Violations :1
+
+Processing Rule : Height Constraint (Min=0mm) (Max=25.4mm) (Prefered=12.7mm) (All)
+Rule Violations :0
+
+
+Violations Detected : 122
+Waived Violations : 0
+Time Elapsed        : 00:00:00

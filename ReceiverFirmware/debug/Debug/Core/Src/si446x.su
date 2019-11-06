@@ -1,0 +1,17 @@
+si446x.cpp:9:1:si446x::si446x(GPIO_TypeDef*, SPI_HandleTypeDef*, uint16_t, uint16_t, uint16_t, uint16_t, uint16_t)	24	static
+si446x.cpp:23:1:si446x::si446x(GPIO_TypeDef*, SPI_HandleTypeDef*, uint16_t, uint16_t, uint16_t)	24	static
+si446x.cpp:35:1:si446x::si446x(SPI_HandleTypeDef*, GPIO_TypeDef*, uint16_t, GPIO_TypeDef*, uint16_t, GPIO_TypeDef*, uint16_t)	24	static
+si446x.cpp:48:6:void si446x::sendPacket(uint8_t*, uint16_t, uint8_t)	32	static
+si446x.cpp:66:6:void si446x::powerUp()	16	static
+si446x.cpp:75:6:void si446x::waitUntilReady()	24	static
+si446x.cpp:87:6:void si446x::sendCommand(uint8_t*, uint8_t)	24	static
+si446x.cpp:96:6:void si446x::sendComandGetResponse(uint8_t*, uint8_t, uint8_t*, uint8_t)	40	static
+si446x.cpp:119:6:void si446x::sendDataToFifo(uint8_t*, uint8_t)	40	static
+si446x.cpp:129:6:void si446x::clearInterupts()	24	static
+si446x.cpp:135:9:uint8_t si446x::getState()	16	static
+si446x.cpp:142:6:void si446x::setReadyState()	24	static
+si446x.cpp:149:6:void si446x::startRX(uint8_t)	32	static
+si446x.cpp:163:9:uint8_t si446x::getRxFifoInfo()	40	static
+si446x.cpp:172:6:void si446x::clearFifoTXRX()	24	static
+si446x.cpp:178:6:void si446x::getPacket(uint8_t*, uint8_t)	40	static
+si446x.cpp:190:6:void si446x::writeConfig()	576	static

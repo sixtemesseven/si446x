@@ -1,0 +1,15 @@
+Added Component: Designator=U3(E10-433MS)
+Add component. Clean all parameters for all variants
+Added Pin To Net: NetName=GND Pin=U3-1
+Added Pin To Net: NetName=VCC Pin=U3-2
+Added Pin To Net: NetName=GPIO0 Pin=U3-3
+Added Pin To Net: NetName=GPIO1 Pin=U3-4
+Added Pin To Net: NetName=IRQ Pin=U3-5
+Added Pin To Net: NetName=SCK Pin=U3-6
+Added Pin To Net: NetName=MISO Pin=U3-7
+Added Pin To Net: NetName=MOSI Pin=U3-8
+Added Pin To Net: NetName=nSEL Pin=U3-9
+Added Pin To Net: NetName=SDN Pin=U3-10
+Added Pin To Net: NetName=NetJ1_1 Pin=U3-11
+Added Pin To Net: NetName=GND Pin=U3-12
+Added Member To Class: ClassName=DoorCard_ReceiverController Member=Component U3 Si4463

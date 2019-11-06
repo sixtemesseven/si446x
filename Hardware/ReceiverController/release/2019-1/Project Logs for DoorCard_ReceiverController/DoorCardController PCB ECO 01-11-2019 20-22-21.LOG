@@ -1,0 +1,5 @@
+Removed Pin From Net: NetName=VCC Pin=C7-2
+Added Pin To Net: NetName=5V Pin=C7-2
+Added Pin To Net: NetName=VCC Pin=U6-16
+Added Room: Name=Designator
+Added Room: Name=DoorCard_ReceiverController

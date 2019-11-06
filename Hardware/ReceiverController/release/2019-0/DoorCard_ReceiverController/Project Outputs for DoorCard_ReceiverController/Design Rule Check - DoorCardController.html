@@ -1,0 +1,754 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html">
+<style type="text/css">
+		h1, h2, h3, h4, h5, h6 {
+			font-family : segoe ui;
+			color : black;
+			background-color : #EDE7D9;
+			padding: 0.3em;
+		}
+
+		h1 {
+			font-size: 1.2em;
+		}		
+
+		h2 {
+			font-size: 1.2em;
+		}
+
+		body {
+			font-family : segoe ui;
+		}
+
+		td, th {
+			padding: 0.5em;
+			text-align : left;
+			width: 10em;
+		}
+		th {
+			background-color : #EEEEEE;
+
+		}
+		th.column1, td.column1 {
+			text-align: left;
+			width : auto;
+		}
+		table {
+			width : 100%;
+			font-size: 0.9em;
+		}
+
+		.DRC_summary_header {
+			padding-bottom : 0.1em;
+			border : 0px solid black;
+			width: 100%;
+			align: left;
+		}
+
+		.DRC_summary_header_col1,
+		.DRC_summary_header_col2, 
+		.DRC_summary_header_col3 {
+			color : black;
+			font-size:100%;
+			padding : 0em;
+			padding-top : 0.2em;
+			padding-bottom 0.2em;
+			border : 0px solid black;
+			vertical-align: top;
+			text-align: left;
+		}
+
+		.DRC_summary_header_col1 {
+			font-weight: bold;
+			width: 8em;
+		}
+
+		.DRC_summary_header_col2 {
+			width: 0.1em;
+		
+		}
+
+		.DRC_summary_header_col3 {
+			width : auto;
+		}
+
+		.header_holder {
+		    Width = 100%;
+		    border = 0px solid green;
+		    padding = 0;
+		}
+
+
+		.front_matter, .front_matter_column1, .front_matter_column2, .front_matter_column3
+		{
+			left : 0;
+			top : 0;
+			padding: 0em;
+			padding-top : 0.1em;
+			border : 0px solid black;
+			width : 100%;
+			vertical-align: top;
+			text-align: left;
+		}
+
+		.front_matter_column1 {
+			width : 8em;
+			font-weight: bold;
+		}
+
+		.front_matter_column2 {
+			width: 0.1em;
+		}
+
+		.front_matter_column3 {
+			width : auto;
+		}
+
+		.total_column1, .total_column {
+			font-weight : bold;
+		}
+		.total_column1 {
+			text-align : left;
+		}
+		.warning, .error {
+			color : red;
+			font-weight : bold;
+		}
+		tr.onmouseout_odd {
+			background-color : #white;
+		}
+		tr.onmouseout_even { 
+			background-color : #FAFAFA;
+		}
+		tr.onmouseover_odd, tr.onmouseover_even { 
+			background-color : #EEEEEE;
+		} 
+		a:link, a:visited, .q a:link,.q a:active,.q {
+			color: #21489e; 
+		}
+		a:link.callback, a:visited.callback { 
+			color: #21489e;
+		}
+		a:link.customize, a:visited.customize {
+			color: #C0C0C0;
+			position: absolute; 
+			right: 10px;
+		}	
+		p.contents_level1 {
+			font-weight : bold;
+			font-size : 110%;
+			margin : 0.5em;
+		}
+		p.contents_level2 {
+			position : relative;
+			left : 20px;
+			margin : 0.5em;
+		}
+	</style><script type="text/javascript">
+		function coordToMils(coord) {
+			var number = coord / 10000;
+			
+			if (number != number.toFixed(3))
+				number = number.toFixed(3);
+
+			return number + 'mil'
+		}
+
+		function coordToMM(coord) {
+			var number = 0.0254 * coord / 10000;
+			
+			if (number != number.toFixed(4))
+				number = number.toFixed(4);
+			
+			return number + 'mm'
+		}
+	
+		function convertCoord(coordNode, units) {
+			for (var i = 0; i < coordNode.childNodes.length; i++) {
+				coordNode.removeChild(coordNode.childNodes[i]);
+			}
+
+			var coord = coordNode.getAttribute('value');
+			if (coord != null) {
+				if (units == 'mm') {
+					textNode = document.createTextNode(coordToMM(coord));
+					coordNode.appendChild(textNode);
+				} else if (units == 'mil') {
+					textNode = document.createTextNode(coordToMils(coord));		
+					coordNode.appendChild(textNode);	
+				}
+			}
+		}
+	
+		function convertUnits(unitNode, units) {
+			for (var i = 0; i < unitNode.childNodes.length; i++) {
+				unitNode.removeChild(unitNode.childNodes[i]);		
+			}
+		
+			textNode = document.createTextNode(units); 
+			unitNode.appendChild(textNode);
+		}
+	
+		function changeUnits(radio_input, units) {
+			if (radio_input.checked) {
+			
+				var elements = document.getElementsByName('coordinate');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertCoord(elements[i], units);
+					}
+				}
+	
+				var elements = document.getElementsByName('units');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertUnits(elements[i], units);
+					}
+				}
+			}
+		}
+	</script><title>Design Rule Verification Report</title>
+</head>
+<body onload=""><img ALT="Altium" src="
+			file://C:\Users\Public\Documents\Altium\AD19\Templates\AD_logo.png
+		"><h1>Design Rule Verification Report</h1>
+<table class="header_holder">
+<td class="column1">
+<table class="front_matter">
+<tr class="front_matter">
+<td class="front_matter_column1">Date:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">10/10/2019</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Time:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">20:56:43</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Elapsed Time:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">00:00:00</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Filename:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3"><a href="file:///D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc" class="file"><acronym title="D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc">D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc</acronym></a></td>
+</tr>
+</table>
+</td>
+<td class="column2">
+<table class="DRC_summary_header">
+<tr>
+<td class="DRC_summary_header_col1">Warnings:</td>
+<td class="DRC_summary_header_col2"></td>
+<td class="DRC_summary_header_col3">0</td></tr>
+<tr>
+<td class="DRC_summary_header_col1">Rule Violations:</td>
+<td class="DRC_summary_header_col2"></td>
+<td class="DRC_summary_header_col3" style="color : red">122</td></tr>
+</table>
+</td>
+</table><a name="IDADOP4VQZ0GF0JPJMWK3ZYIVADG1O3U1DZDSYQGOLGHAXV1Q4MO1I"><h2>Summary</h2></a><table>
+<tr>
+<th class="column1">Warnings</th>
+<th class="column2">Count</th>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">0</td>
+</tr>
+</table><br><table>
+<tr>
+<th class="column1">Rule Violations</th>
+<th class="column2">Count</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDB23WGWUK3KKCG2KZMKLJRAUGADPIASJ2VM0CKNHJ3M3QW2LMLUZN">Clearance Constraint (Gap=0.2mm) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#ID2VIOSAAFWSNUIAPNYNPDCX2USF22EUZJ5XULEJI5NPFS5JKVEJZK">Short-Circuit Constraint (Allowed=No) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDCQ4VAUYHLYSLKSZ1B3VZRHGQWHT5MNWWOSKNJOHXAEYMTKY41AEO">Un-Routed Net Constraint ( (All) )</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDPOGSN0UE4I3TNHV4FUAUW1Y5Y2KBUQKVIY4QAEHCLCX1XHP3HRK">Modified Polygon (Allow modified: No), (Allow shelved: No)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDIRFIMZM4BPQYFY4PRNZWAHXANOTEVBGHWMCGINLAKIWSQPEXX4GJ">Width Constraint (Min=0.254mm) (Max=10mm) (Preferred=0.254mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#ID3YHNAMU4AXFQCTS5PHOWNO53JHLY2MR5YFUOPVDQIASTG4MB5SHP">Power Plane Connect Rule(Direct Connect )(Expansion=0.508mm) (Conductor Width=0.254mm) (Air Gap=0.254mm) (Entries=4) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDDYQQMGWGJC5HF24YHHROVTH1LOPFHM0B150HBVJIVVIHFY1A5RHJ">Hole Size Constraint (Min=0.025mm) (Max=2.54mm) (All)</a></td>
+<td class="column2">8</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDDSUFI5LPKVLSFPJ2QHB2VJKW2HCZD2F1BXANTLDRMNF1GCIIUXZG">Hole To Hole Clearance (Gap=0.254mm) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDLPMU4MRSORJDFNJNRGUA3XLFWLOPRELRA2FVJPN3CMJEAA32VC3F">Minimum Solder Mask Sliver (Gap=0.254mm) (All),(All)</a></td>
+<td class="column2">18</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#ID3NSEB4TCPFEED0P5VAFW3TCBFLPYTVNH2WAQGQEHFJY0FUVCOPBI">Silk To Solder Mask (Clearance=0.254mm) (IsPad),(All)</a></td>
+<td class="column2">56</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDBM4VAUORNZCJHVKRLIRYPUTCAG5MWSHUFATHU1LRUPJ4ZU0SVH1I">Silk to Silk (Clearance=0.254mm) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDYWQK00KJCZFNJQXUGBS34V3ZBLDXG5434BDNJTFY3OH3NHLUWTRD">Net Antennae (Tolerance=0mm) (All)</a></td>
+<td class="column2">1</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDCHDAS3GHVMCFMFDQLY35FYQXSNVKE3YFRSFDVLGYGTYIGE13GQUD">Room R?2 (Bounding Region = (29.461mm, 74.99mm, 88.461mm, 84.99mm) (InComponentClass('R?2'))</a></td>
+<td class="column2">1</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#ID4LX31YBM4D4NEYDIGCPEKWU21GACAECOEQH1HBBTFI3VABYAWUS">Room R?1 (Bounding Region = (29.5mm, 85.287mm, 88.5mm, 95.287mm) (InComponentClass('R?1'))</a></td>
+<td class="column2">1</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDYXRSO3I5E3GDPGZPD2J14V4IGI1ZAY4UVN2QHAFIDHZZISWQPCYM">Room DoorCard_ReceiverController (Bounding Region = (191.389mm, 0.381mm, 409.067mm, 34.671mm) (InComponentClass('DoorCard_ReceiverController'))</a></td>
+<td class="column2">34</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDCKAZNIAT42O0EYDM3FA4FPV3YD5RJXKF5SKLBXP0GBHBHLGFB1SC">Room R?5 (Bounding Region = (29.5mm, 43.765mm, 88.5mm, 53.765mm) (InComponentClass('R?5'))</a></td>
+<td class="column2">1</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDBIUYYW4PFCWXBK1ZXVHXLTUHTIUAYT1V3VWO2SECXINOJ41AXBIM">Room R?4 (Bounding Region = (29.5mm, 54.215mm, 88.5mm, 64.215mm) (InComponentClass('R?4'))</a></td>
+<td class="column2">1</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDKIMZF4VJS0A4PLPOQZN2HMLEUJMZQVZFVB2IWLFN2BTWYKXAFWC">Room R?3 (Bounding Region = (29.461mm, 64.615mm, 88.461mm, 74.615mm) (InComponentClass('R?3'))</a></td>
+<td class="column2">1</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDSGBS4IKRQ4RTCS3P4BFTGXJTHBTAKA30TYS3QHK2YUJMXPSCL5FJ">Height Constraint (Min=0mm) (Max=25.4mm) (Prefered=12.7mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">122</td>
+</tr>
+</table><br><a name="IDDYQQMGWGJC5HF24YHHROVTH1LOPFHM0B150HBVJIVVIHFY1A5RHJ"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Hole Size Constraint (Min=0.025mm) (Max=2.54mm) (All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1036.777mil|Location2.X=1167.948mil|Location1.Y=1410.792mil|Location2.Y=1541.964mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1036.777mil|Location2.X=1167.948mil|Location1.Y=1410.792mil|Location2.Y=1541.964mil|Absolute=True">Hole Size Constraint: (3.3mm &gt; 2.54mm) Pad Free-1(28mm,37.5mm) on Multi-Layer Actual Hole Size = 3.3mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4639.139mil|Location2.X=4770.31mil|Location1.Y=1410.792mil|Location2.Y=1541.964mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4639.139mil|Location2.X=4770.31mil|Location1.Y=1410.792mil|Location2.Y=1541.964mil|Absolute=True">Hole Size Constraint: (3.3mm &gt; 2.54mm) Pad Free-2(119.5mm,37.5mm) on Multi-Layer Actual Hole Size = 3.3mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4639.139mil|Location2.X=4770.31mil|Location1.Y=4826.147mil|Location2.Y=4957.318mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4639.139mil|Location2.X=4770.31mil|Location1.Y=4826.147mil|Location2.Y=4957.318mil|Absolute=True">Hole Size Constraint: (3.3mm &gt; 2.54mm) Pad Free-3(119.5mm,124.25mm) on Multi-Layer Actual Hole Size = 3.3mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1036.777mil|Location2.X=1167.948mil|Location1.Y=4816.304mil|Location2.Y=4947.475mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1036.777mil|Location2.X=1167.948mil|Location1.Y=4816.304mil|Location2.Y=4947.475mil|Absolute=True">Hole Size Constraint: (3.3mm &gt; 2.54mm) Pad Free-4(28mm,124mm) on Multi-Layer Actual Hole Size = 3.3mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4639.139mil|Location2.X=4770.31mil|Location1.Y=2985.595mil|Location2.Y=3116.767mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4639.139mil|Location2.X=4770.31mil|Location1.Y=2985.595mil|Location2.Y=3116.767mil|Absolute=True">Hole Size Constraint: (3.3mm &gt; 2.54mm) Pad Free-5(119.5mm,77.5mm) on Multi-Layer Actual Hole Size = 3.3mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1036.777mil|Location2.X=1167.948mil|Location1.Y=3894.651mil|Location2.Y=4025.822mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1036.777mil|Location2.X=1167.948mil|Location1.Y=3894.651mil|Location2.Y=4025.822mil|Absolute=True">Hole Size Constraint: (3.3mm &gt; 2.54mm) Pad Free-6(28mm,100.59mm) on Multi-Layer Actual Hole Size = 3.3mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4362.367mil|Location2.X=4489.601mil|Location1.Y=1669.946mil|Location2.Y=1797.18mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4362.367mil|Location2.X=4489.601mil|Location1.Y=1669.946mil|Location2.Y=1797.18mil|Absolute=True">Hole Size Constraint: (3.2mm &gt; 2.54mm) Pad J2-SH(112.42mm,44.032mm) on Multi-Layer Actual Hole Size = 3.2mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4362.367mil|Location2.X=4489.601mil|Location1.Y=2654.198mil|Location2.Y=2781.432mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4362.367mil|Location2.X=4489.601mil|Location1.Y=2654.198mil|Location2.Y=2781.432mil|Absolute=True">Hole Size Constraint: (3.2mm &gt; 2.54mm) Pad J2-SH(112.42mm,69.032mm) on Multi-Layer Actual Hole Size = 3.2mm</acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="IDLPMU4MRSORJDFNJNRGUA3XLFWLOPRELRA2FVJPN3CMJEAA32VC3F"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Minimum Solder Mask Sliver (Gap=0.254mm) (All),(All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2738.876mil|Location2.X=2750.126mil|Location1.Y=4072.131mil|Location2.Y=4083.381mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2738.876mil|Location2.X=2750.126mil|Location1.Y=4072.131mil|Location2.Y=4083.381mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.097mm &lt; 0.254mm) Between Pad U2-1(69.385mm,104.45mm) on Top Layer And Pad U2-2(70.035mm,104.45mm) on Top Layer [Top Solder] Mask Sliver [0.097mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2943.601mil|Location2.X=2954.851mil|Location1.Y=4072.131mil|Location2.Y=4083.381mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2943.601mil|Location2.X=2954.851mil|Location1.Y=4072.131mil|Location2.Y=4083.381mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.097mm &lt; 0.254mm) Between Pad U2-10(75.235mm,104.45mm) on Top Layer And Pad U2-9(74.585mm,104.45mm) on Top Layer [Top Solder] Mask Sliver [0.097mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2943.601mil|Location2.X=2954.851mil|Location1.Y=4300.478mil|Location2.Y=4311.728mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2943.601mil|Location2.X=2954.851mil|Location1.Y=4300.478mil|Location2.Y=4311.728mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.097mm &lt; 0.254mm) Between Pad U2-11(75.235mm,110.25mm) on Top Layer And Pad U2-12(74.585mm,110.25mm) on Top Layer [Top Solder] Mask Sliver [0.097mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2918.01mil|Location2.X=2929.26mil|Location1.Y=4300.478mil|Location2.Y=4311.728mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2918.01mil|Location2.X=2929.26mil|Location1.Y=4300.478mil|Location2.Y=4311.728mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.097mm &lt; 0.254mm) Between Pad U2-12(74.585mm,110.25mm) on Top Layer And Pad U2-13(73.935mm,110.25mm) on Top Layer [Top Solder] Mask Sliver [0.097mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2892.42mil|Location2.X=2903.67mil|Location1.Y=4300.478mil|Location2.Y=4311.728mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2892.42mil|Location2.X=2903.67mil|Location1.Y=4300.478mil|Location2.Y=4311.728mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.097mm &lt; 0.254mm) Between Pad U2-13(73.935mm,110.25mm) on Top Layer And Pad U2-14(73.285mm,110.25mm) on Top Layer [Top Solder] Mask Sliver [0.097mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2866.829mil|Location2.X=2878.079mil|Location1.Y=4300.478mil|Location2.Y=4311.728mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2866.829mil|Location2.X=2878.079mil|Location1.Y=4300.478mil|Location2.Y=4311.728mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.097mm &lt; 0.254mm) Between Pad U2-14(73.285mm,110.25mm) on Top Layer And Pad U2-15(72.635mm,110.25mm) on Top Layer [Top Solder] Mask Sliver [0.097mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2841.239mil|Location2.X=2852.489mil|Location1.Y=4300.478mil|Location2.Y=4311.728mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2841.239mil|Location2.X=2852.489mil|Location1.Y=4300.478mil|Location2.Y=4311.728mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.097mm &lt; 0.254mm) Between Pad U2-15(72.635mm,110.25mm) on Top Layer And Pad U2-16(71.985mm,110.25mm) on Top Layer [Top Solder] Mask Sliver [0.097mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2815.648mil|Location2.X=2826.898mil|Location1.Y=4300.478mil|Location2.Y=4311.728mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2815.648mil|Location2.X=2826.898mil|Location1.Y=4300.478mil|Location2.Y=4311.728mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.097mm &lt; 0.254mm) Between Pad U2-16(71.985mm,110.25mm) on Top Layer And Pad U2-17(71.335mm,110.25mm) on Top Layer [Top Solder] Mask Sliver [0.097mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2790.057mil|Location2.X=2801.307mil|Location1.Y=4300.478mil|Location2.Y=4311.728mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2790.057mil|Location2.X=2801.307mil|Location1.Y=4300.478mil|Location2.Y=4311.728mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.097mm &lt; 0.254mm) Between Pad U2-17(71.335mm,110.25mm) on Top Layer And Pad U2-18(70.685mm,110.25mm) on Top Layer [Top Solder] Mask Sliver [0.097mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2764.467mil|Location2.X=2775.717mil|Location1.Y=4300.478mil|Location2.Y=4311.728mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2764.467mil|Location2.X=2775.717mil|Location1.Y=4300.478mil|Location2.Y=4311.728mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.097mm &lt; 0.254mm) Between Pad U2-18(70.685mm,110.25mm) on Top Layer And Pad U2-19(70.035mm,110.25mm) on Top Layer [Top Solder] Mask Sliver [0.097mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2738.876mil|Location2.X=2750.126mil|Location1.Y=4300.478mil|Location2.Y=4311.728mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2738.876mil|Location2.X=2750.126mil|Location1.Y=4300.478mil|Location2.Y=4311.728mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.097mm &lt; 0.254mm) Between Pad U2-19(70.035mm,110.25mm) on Top Layer And Pad U2-20(69.385mm,110.25mm) on Top Layer [Top Solder] Mask Sliver [0.097mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2764.467mil|Location2.X=2775.717mil|Location1.Y=4072.131mil|Location2.Y=4083.381mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2764.467mil|Location2.X=2775.717mil|Location1.Y=4072.131mil|Location2.Y=4083.381mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.097mm &lt; 0.254mm) Between Pad U2-2(70.035mm,104.45mm) on Top Layer And Pad U2-3(70.685mm,104.45mm) on Top Layer [Top Solder] Mask Sliver [0.097mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2790.057mil|Location2.X=2801.307mil|Location1.Y=4072.131mil|Location2.Y=4083.381mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2790.057mil|Location2.X=2801.307mil|Location1.Y=4072.131mil|Location2.Y=4083.381mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.097mm &lt; 0.254mm) Between Pad U2-3(70.685mm,104.45mm) on Top Layer And Pad U2-4(71.335mm,104.45mm) on Top Layer [Top Solder] Mask Sliver [0.097mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2815.648mil|Location2.X=2826.898mil|Location1.Y=4072.131mil|Location2.Y=4083.381mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2815.648mil|Location2.X=2826.898mil|Location1.Y=4072.131mil|Location2.Y=4083.381mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.097mm &lt; 0.254mm) Between Pad U2-4(71.335mm,104.45mm) on Top Layer And Pad U2-5(71.985mm,104.45mm) on Top Layer [Top Solder] Mask Sliver [0.097mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2841.239mil|Location2.X=2852.489mil|Location1.Y=4072.131mil|Location2.Y=4083.381mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2841.239mil|Location2.X=2852.489mil|Location1.Y=4072.131mil|Location2.Y=4083.381mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.097mm &lt; 0.254mm) Between Pad U2-5(71.985mm,104.45mm) on Top Layer And Pad U2-6(72.635mm,104.45mm) on Top Layer [Top Solder] Mask Sliver [0.097mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2866.829mil|Location2.X=2878.079mil|Location1.Y=4072.131mil|Location2.Y=4083.381mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2866.829mil|Location2.X=2878.079mil|Location1.Y=4072.131mil|Location2.Y=4083.381mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.097mm &lt; 0.254mm) Between Pad U2-6(72.635mm,104.45mm) on Top Layer And Pad U2-7(73.285mm,104.45mm) on Top Layer [Top Solder] Mask Sliver [0.097mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2892.42mil|Location2.X=2903.67mil|Location1.Y=4072.131mil|Location2.Y=4083.381mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2892.42mil|Location2.X=2903.67mil|Location1.Y=4072.131mil|Location2.Y=4083.381mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.097mm &lt; 0.254mm) Between Pad U2-7(73.285mm,104.45mm) on Top Layer And Pad U2-8(73.935mm,104.45mm) on Top Layer [Top Solder] Mask Sliver [0.097mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2918.01mil|Location2.X=2929.26mil|Location1.Y=4072.131mil|Location2.Y=4083.381mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2918.01mil|Location2.X=2929.26mil|Location1.Y=4072.131mil|Location2.Y=4083.381mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.097mm &lt; 0.254mm) Between Pad U2-8(73.935mm,104.45mm) on Top Layer And Pad U2-9(74.585mm,104.45mm) on Top Layer [Top Solder] Mask Sliver [0.097mm]</acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="ID3NSEB4TCPFEED0P5VAFW3TCBFLPYTVNH2WAQGQEHFJY0FUVCOPBI"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Silk To Solder Mask (Clearance=0.254mm) (IsPad),(All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2801.869mil|Location2.X=2813.119mil|Location1.Y=3935.812mil|Location2.Y=3947.062mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2801.869mil|Location2.X=2813.119mil|Location1.Y=3935.812mil|Location2.Y=3947.062mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.175mm &lt; 0.254mm) Between Pad C1-1(71.985mm,99.35mm) on Top Layer And Track (71.31mm,100.3mm)(71.31mm,100.4mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.175mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2855.018mil|Location2.X=2866.268mil|Location1.Y=3935.812mil|Location2.Y=3947.062mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2855.018mil|Location2.X=2866.268mil|Location1.Y=3935.812mil|Location2.Y=3947.062mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.175mm &lt; 0.254mm) Between Pad C1-1(71.985mm,99.35mm) on Top Layer And Track (72.66mm,100.3mm)(72.66mm,100.4mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.175mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2801.869mil|Location2.X=2813.119mil|Location1.Y=3954.513mil|Location2.Y=3965.763mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2801.869mil|Location2.X=2813.119mil|Location1.Y=3954.513mil|Location2.Y=3965.763mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.175mm &lt; 0.254mm) Between Pad C1-2(71.985mm,101.35mm) on Top Layer And Track (71.31mm,100.3mm)(71.31mm,100.4mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.175mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2857.659mil|Location2.X=2871.121mil|Location1.Y=3954.395mil|Location2.Y=3965.645mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2857.659mil|Location2.X=2871.121mil|Location1.Y=3954.395mil|Location2.Y=3965.645mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.193mm &lt; 0.254mm) Between Pad C1-2(71.985mm,101.35mm) on Top Layer And Track (72.66mm,100.3mm)(72.66mm,100.4mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.193mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2776.278mil|Location2.X=2787.528mil|Location1.Y=4505.694mil|Location2.Y=4516.944mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2776.278mil|Location2.X=2787.528mil|Location1.Y=4505.694mil|Location2.Y=4516.944mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.175mm &lt; 0.254mm) Between Pad C2-1(71.335mm,115.35mm) on Top Layer And Track (70.66mm,114.3mm)(70.66mm,114.4mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.175mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2832.069mil|Location2.X=2845.531mil|Location1.Y=4505.576mil|Location2.Y=4516.826mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2832.069mil|Location2.X=2845.531mil|Location1.Y=4505.576mil|Location2.Y=4516.826mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.193mm &lt; 0.254mm) Between Pad C2-1(71.335mm,115.35mm) on Top Layer And Track (72.01mm,114.3mm)(72.01mm,114.4mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.193mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2776.278mil|Location2.X=2787.528mil|Location1.Y=4486.993mil|Location2.Y=4498.243mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2776.278mil|Location2.X=2787.528mil|Location1.Y=4486.993mil|Location2.Y=4498.243mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.175mm &lt; 0.254mm) Between Pad C2-2(71.335mm,113.35mm) on Top Layer And Track (70.66mm,114.3mm)(70.66mm,114.4mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.175mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2829.428mil|Location2.X=2840.678mil|Location1.Y=4486.993mil|Location2.Y=4498.243mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2829.428mil|Location2.X=2840.678mil|Location1.Y=4486.993mil|Location2.Y=4498.243mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.175mm &lt; 0.254mm) Between Pad C2-2(71.335mm,113.35mm) on Top Layer And Track (72.01mm,114.3mm)(72.01mm,114.4mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.175mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2880.766mil|Location2.X=2892.016mil|Location1.Y=4505.694mil|Location2.Y=4516.944mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2880.766mil|Location2.X=2892.016mil|Location1.Y=4505.694mil|Location2.Y=4516.944mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.175mm &lt; 0.254mm) Between Pad C3-1(73.989mm,115.35mm) on Top Layer And Track (73.314mm,114.3mm)(73.314mm,114.4mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.175mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2936.557mil|Location2.X=2950.019mil|Location1.Y=4505.576mil|Location2.Y=4516.826mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2936.557mil|Location2.X=2950.019mil|Location1.Y=4505.576mil|Location2.Y=4516.826mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.193mm &lt; 0.254mm) Between Pad C3-1(73.989mm,115.35mm) on Top Layer And Track (74.664mm,114.3mm)(74.664mm,114.4mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.193mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2880.766mil|Location2.X=2892.016mil|Location1.Y=4486.993mil|Location2.Y=4498.243mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2880.766mil|Location2.X=2892.016mil|Location1.Y=4486.993mil|Location2.Y=4498.243mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.175mm &lt; 0.254mm) Between Pad C3-2(73.989mm,113.35mm) on Top Layer And Track (73.314mm,114.3mm)(73.314mm,114.4mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.175mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2933.916mil|Location2.X=2945.166mil|Location1.Y=4486.993mil|Location2.Y=4498.243mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2933.916mil|Location2.X=2945.166mil|Location1.Y=4486.993mil|Location2.Y=4498.243mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.175mm &lt; 0.254mm) Between Pad C3-2(73.989mm,113.35mm) on Top Layer And Track (74.664mm,114.3mm)(74.664mm,114.4mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.175mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4328.903mil|Location2.X=4340.153mil|Location1.Y=3457.433mil|Location2.Y=3468.683mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4328.903mil|Location2.X=4340.153mil|Location1.Y=3457.433mil|Location2.Y=3468.683mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.098mm &lt; 0.254mm) Between Pad SW1-1(110.561mm,88.672mm) on Top Layer And Track (105.161mm,87.812mm)(111.471mm,87.812mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.098mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4328.421mil|Location2.X=4339.671mil|Location1.Y=3197.452mil|Location2.Y=3208.702mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4328.421mil|Location2.X=4339.671mil|Location1.Y=3197.452mil|Location2.Y=3208.702mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.089mm &lt; 0.254mm) Between Pad SW1-2(110.561mm,80.662mm) on Top Layer And Track (105.161mm,81.502mm)(111.471mm,81.502mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.089mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4152.132mil|Location2.X=4163.382mil|Location1.Y=3457.433mil|Location2.Y=3468.683mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4152.132mil|Location2.X=4163.382mil|Location1.Y=3457.433mil|Location2.Y=3468.683mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.098mm &lt; 0.254mm) Between Pad SW1-3(106.071mm,88.672mm) on Top Layer And Track (105.161mm,87.812mm)(111.471mm,87.812mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.098mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4151.649mil|Location2.X=4162.899mil|Location1.Y=3197.452mil|Location2.Y=3208.702mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4151.649mil|Location2.X=4162.899mil|Location1.Y=3197.452mil|Location2.Y=3208.702mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.089mm &lt; 0.254mm) Between Pad SW1-4(106.071mm,80.662mm) on Top Layer And Track (105.161mm,81.502mm)(111.471mm,81.502mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.089mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2746.894mil|Location2.X=2758.144mil|Location1.Y=4864.043mil|Location2.Y=4875.293mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2746.894mil|Location2.X=2758.144mil|Location1.Y=4864.043mil|Location2.Y=4875.293mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.243mm &lt; 0.254mm) Between Pad SW2-1(69.275mm,124.25mm) on Top Layer And Track (70.135mm,118.85mm)(70.135mm,125.16mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.243mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3010.163mil|Location2.X=3021.413mil|Location1.Y=4866.466mil|Location2.Y=4877.716mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3010.163mil|Location2.X=3021.413mil|Location1.Y=4866.466mil|Location2.Y=4877.716mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.111mm &lt; 0.254mm) Between Pad SW2-2(77.285mm,124.25mm) on Top Layer And Track (76.445mm,118.85mm)(76.445mm,125.16mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.111mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2746.894mil|Location2.X=2758.144mil|Location1.Y=4687.271mil|Location2.Y=4698.521mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2746.894mil|Location2.X=2758.144mil|Location1.Y=4687.271mil|Location2.Y=4698.521mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.243mm &lt; 0.254mm) Between Pad SW2-3(69.275mm,119.76mm) on Top Layer And Track (70.135mm,118.85mm)(70.135mm,125.16mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.243mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3010.163mil|Location2.X=3021.413mil|Location1.Y=4689.694mil|Location2.Y=4700.944mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3010.163mil|Location2.X=3021.413mil|Location1.Y=4689.694mil|Location2.Y=4700.944mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.111mm &lt; 0.254mm) Between Pad SW2-4(77.285mm,119.76mm) on Top Layer And Track (76.445mm,118.85mm)(76.445mm,125.16mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.111mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2263.219mil|Location2.X=2274.469mil|Location1.Y=4864.043mil|Location2.Y=4875.293mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2263.219mil|Location2.X=2274.469mil|Location1.Y=4864.043mil|Location2.Y=4875.293mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.243mm &lt; 0.254mm) Between Pad SW3-1(56.99mm,124.25mm) on Top Layer And Track (57.85mm,118.85mm)(57.85mm,125.16mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.243mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2526.488mil|Location2.X=2537.738mil|Location1.Y=4866.466mil|Location2.Y=4877.716mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2526.488mil|Location2.X=2537.738mil|Location1.Y=4866.466mil|Location2.Y=4877.716mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.111mm &lt; 0.254mm) Between Pad SW3-2(65mm,124.25mm) on Top Layer And Track (64.16mm,118.85mm)(64.16mm,125.16mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.111mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2263.219mil|Location2.X=2274.469mil|Location1.Y=4687.271mil|Location2.Y=4698.521mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2263.219mil|Location2.X=2274.469mil|Location1.Y=4687.271mil|Location2.Y=4698.521mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.243mm &lt; 0.254mm) Between Pad SW3-3(56.99mm,119.76mm) on Top Layer And Track (57.85mm,118.85mm)(57.85mm,125.16mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.243mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2526.488mil|Location2.X=2537.738mil|Location1.Y=4689.694mil|Location2.Y=4700.944mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2526.488mil|Location2.X=2537.738mil|Location1.Y=4689.694mil|Location2.Y=4700.944mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.111mm &lt; 0.254mm) Between Pad SW3-4(65mm,119.76mm) on Top Layer And Track (64.16mm,118.85mm)(64.16mm,125.16mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.111mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3372.945mil|Location2.X=3384.195mil|Location1.Y=3438.808mil|Location2.Y=3450.058mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3372.945mil|Location2.X=3384.195mil|Location1.Y=3438.808mil|Location2.Y=3450.058mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.131mm &lt; 0.254mm) Between Pad SW4_R?1-1(86.51mm,87.987mm) on Top Layer And Track (85.65mm,87.077mm)(85.65mm,93.387mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.131mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3109.676mil|Location2.X=3120.926mil|Location1.Y=3436.385mil|Location2.Y=3447.635mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3109.676mil|Location2.X=3120.926mil|Location1.Y=3436.385mil|Location2.Y=3447.635mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.223mm &lt; 0.254mm) Between Pad SW4_R?1-2(78.5mm,87.987mm) on Top Layer And Track (79.34mm,87.077mm)(79.34mm,93.387mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.223mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3372.945mil|Location2.X=3384.195mil|Location1.Y=3615.58mil|Location2.Y=3626.83mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3372.945mil|Location2.X=3384.195mil|Location1.Y=3615.58mil|Location2.Y=3626.83mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.131mm &lt; 0.254mm) Between Pad SW4_R?1-3(86.51mm,92.477mm) on Top Layer And Track (85.65mm,87.077mm)(85.65mm,93.387mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.131mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3109.676mil|Location2.X=3120.926mil|Location1.Y=3613.157mil|Location2.Y=3624.407mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3109.676mil|Location2.X=3120.926mil|Location1.Y=3613.157mil|Location2.Y=3624.407mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.223mm &lt; 0.254mm) Between Pad SW4_R?1-4(78.5mm,92.477mm) on Top Layer And Track (79.34mm,87.077mm)(79.34mm,93.387mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.223mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3371.41mil|Location2.X=3382.66mil|Location1.Y=3025.914mil|Location2.Y=3037.164mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3371.41mil|Location2.X=3382.66mil|Location1.Y=3025.914mil|Location2.Y=3037.164mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.131mm &lt; 0.254mm) Between Pad SW4_R?2-1(86.471mm,77.5mm) on Top Layer And Track (85.611mm,76.59mm)(85.611mm,82.9mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.131mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3108.141mil|Location2.X=3119.391mil|Location1.Y=3023.492mil|Location2.Y=3034.742mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3108.141mil|Location2.X=3119.391mil|Location1.Y=3023.492mil|Location2.Y=3034.742mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.223mm &lt; 0.254mm) Between Pad SW4_R?2-2(78.461mm,77.5mm) on Top Layer And Track (79.301mm,76.59mm)(79.301mm,82.9mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.223mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3371.41mil|Location2.X=3382.66mil|Location1.Y=3202.686mil|Location2.Y=3213.936mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3371.41mil|Location2.X=3382.66mil|Location1.Y=3202.686mil|Location2.Y=3213.936mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.131mm &lt; 0.254mm) Between Pad SW4_R?2-3(86.471mm,81.99mm) on Top Layer And Track (85.611mm,76.59mm)(85.611mm,82.9mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.131mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3108.141mil|Location2.X=3119.391mil|Location1.Y=3200.263mil|Location2.Y=3211.513mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3108.141mil|Location2.X=3119.391mil|Location1.Y=3200.263mil|Location2.Y=3211.513mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.223mm &lt; 0.254mm) Between Pad SW4_R?2-4(78.461mm,81.99mm) on Top Layer And Track (79.301mm,76.59mm)(79.301mm,82.9mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.223mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3371.41mil|Location2.X=3382.66mil|Location1.Y=2617.45mil|Location2.Y=2628.7mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3371.41mil|Location2.X=3382.66mil|Location1.Y=2617.45mil|Location2.Y=2628.7mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.131mm &lt; 0.254mm) Between Pad SW4_R?3-1(86.471mm,67.125mm) on Top Layer And Track (85.611mm,66.215mm)(85.611mm,72.525mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.131mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3108.141mil|Location2.X=3119.391mil|Location1.Y=2615.027mil|Location2.Y=2626.277mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3108.141mil|Location2.X=3119.391mil|Location1.Y=2615.027mil|Location2.Y=2626.277mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.223mm &lt; 0.254mm) Between Pad SW4_R?3-2(78.461mm,67.125mm) on Top Layer And Track (79.301mm,66.215mm)(79.301mm,72.525mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.223mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3371.41mil|Location2.X=3382.66mil|Location1.Y=2794.221mil|Location2.Y=2805.471mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3371.41mil|Location2.X=3382.66mil|Location1.Y=2794.221mil|Location2.Y=2805.471mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.131mm &lt; 0.254mm) Between Pad SW4_R?3-3(86.471mm,71.615mm) on Top Layer And Track (85.611mm,66.215mm)(85.611mm,72.525mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.131mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3108.141mil|Location2.X=3119.391mil|Location1.Y=2791.799mil|Location2.Y=2803.049mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3108.141mil|Location2.X=3119.391mil|Location1.Y=2791.799mil|Location2.Y=2803.049mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.223mm &lt; 0.254mm) Between Pad SW4_R?3-4(78.461mm,71.615mm) on Top Layer And Track (79.301mm,66.215mm)(79.301mm,72.525mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.223mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3372.945mil|Location2.X=3384.195mil|Location1.Y=2208.001mil|Location2.Y=2219.251mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3372.945mil|Location2.X=3384.195mil|Location1.Y=2208.001mil|Location2.Y=2219.251mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.131mm &lt; 0.254mm) Between Pad SW4_R?4-1(86.51mm,56.725mm) on Top Layer And Track (85.65mm,55.815mm)(85.65mm,62.125mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.131mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3109.676mil|Location2.X=3120.926mil|Location1.Y=2205.578mil|Location2.Y=2216.828mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3109.676mil|Location2.X=3120.926mil|Location1.Y=2205.578mil|Location2.Y=2216.828mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.223mm &lt; 0.254mm) Between Pad SW4_R?4-2(78.5mm,56.725mm) on Top Layer And Track (79.34mm,55.815mm)(79.34mm,62.125mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.223mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3372.945mil|Location2.X=3384.195mil|Location1.Y=2384.773mil|Location2.Y=2396.023mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3372.945mil|Location2.X=3384.195mil|Location1.Y=2384.773mil|Location2.Y=2396.023mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.131mm &lt; 0.254mm) Between Pad SW4_R?4-3(86.51mm,61.215mm) on Top Layer And Track (85.65mm,55.815mm)(85.65mm,62.125mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.131mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3109.676mil|Location2.X=3120.926mil|Location1.Y=2382.35mil|Location2.Y=2393.6mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3109.676mil|Location2.X=3120.926mil|Location1.Y=2382.35mil|Location2.Y=2393.6mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.223mm &lt; 0.254mm) Between Pad SW4_R?4-4(78.5mm,61.215mm) on Top Layer And Track (79.34mm,55.815mm)(79.34mm,62.125mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.223mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3372.945mil|Location2.X=3384.195mil|Location1.Y=1796.584mil|Location2.Y=1807.834mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3372.945mil|Location2.X=3384.195mil|Location1.Y=1796.584mil|Location2.Y=1807.834mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.131mm &lt; 0.254mm) Between Pad SW4_R?5-1(86.51mm,46.275mm) on Top Layer And Track (85.65mm,45.365mm)(85.65mm,51.675mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.131mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3109.676mil|Location2.X=3120.926mil|Location1.Y=1794.161mil|Location2.Y=1805.411mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3109.676mil|Location2.X=3120.926mil|Location1.Y=1794.161mil|Location2.Y=1805.411mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.223mm &lt; 0.254mm) Between Pad SW4_R?5-2(78.5mm,46.275mm) on Top Layer And Track (79.34mm,45.365mm)(79.34mm,51.675mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.223mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3372.945mil|Location2.X=3384.195mil|Location1.Y=1973.355mil|Location2.Y=1984.605mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3372.945mil|Location2.X=3384.195mil|Location1.Y=1973.355mil|Location2.Y=1984.605mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.131mm &lt; 0.254mm) Between Pad SW4_R?5-3(86.51mm,50.765mm) on Top Layer And Track (85.65mm,45.365mm)(85.65mm,51.675mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.131mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3109.676mil|Location2.X=3120.926mil|Location1.Y=1970.933mil|Location2.Y=1982.183mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3109.676mil|Location2.X=3120.926mil|Location1.Y=1970.933mil|Location2.Y=1982.183mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.223mm &lt; 0.254mm) Between Pad SW4_R?5-4(78.5mm,50.765mm) on Top Layer And Track (79.34mm,45.365mm)(79.34mm,51.675mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.223mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3748.608mil|Location2.X=3756.274mil|Location1.Y=4611.816mil|Location2.Y=4619.483mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3748.608mil|Location2.X=3756.274mil|Location1.Y=4611.816mil|Location2.Y=4619.483mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.254mm) Between Pad U3-1(95.312mm,117.237mm) on Top Layer And Track (95.312mm,104.968mm)(95.312mm,118.238mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3748.608mil|Location2.X=3756.274mil|Location1.Y=4161.816mil|Location2.Y=4169.483mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3748.608mil|Location2.X=3756.274mil|Location1.Y=4161.816mil|Location2.Y=4169.483mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.254mm) Between Pad U3-10(95.312mm,105.807mm) on Top Layer And Track (95.312mm,104.968mm)(95.312mm,118.238mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4474.985mil|Location2.X=4482.652mil|Location1.Y=4252.761mil|Location2.Y=4260.428mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4474.985mil|Location2.X=4482.652mil|Location1.Y=4252.761mil|Location2.Y=4260.428mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.254mm) Between Pad U3-11(113.762mm,108.118mm) on Top Layer And Track (113.762mm,104.968mm)(113.762mm,118.238mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4474.985mil|Location2.X=4482.652mil|Location1.Y=4350.793mil|Location2.Y=4358.459mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4474.985mil|Location2.X=4482.652mil|Location1.Y=4350.793mil|Location2.Y=4358.459mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.254mm) Between Pad U3-12(113.762mm,110.608mm) on Top Layer And Track (113.762mm,104.968mm)(113.762mm,118.238mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3748.608mil|Location2.X=3756.274mil|Location1.Y=4561.816mil|Location2.Y=4569.483mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3748.608mil|Location2.X=3756.274mil|Location1.Y=4561.816mil|Location2.Y=4569.483mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.254mm) Between Pad U3-2(95.312mm,115.967mm) on Top Layer And Track (95.312mm,104.968mm)(95.312mm,118.238mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3748.608mil|Location2.X=3756.274mil|Location1.Y=4511.816mil|Location2.Y=4519.483mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3748.608mil|Location2.X=3756.274mil|Location1.Y=4511.816mil|Location2.Y=4519.483mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.254mm) Between Pad U3-3(95.312mm,114.697mm) on Top Layer And Track (95.312mm,104.968mm)(95.312mm,118.238mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3748.608mil|Location2.X=3756.274mil|Location1.Y=4461.816mil|Location2.Y=4469.483mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3748.608mil|Location2.X=3756.274mil|Location1.Y=4461.816mil|Location2.Y=4469.483mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.254mm) Between Pad U3-4(95.312mm,113.427mm) on Top Layer And Track (95.312mm,104.968mm)(95.312mm,118.238mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3748.608mil|Location2.X=3756.274mil|Location1.Y=4411.816mil|Location2.Y=4419.483mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3748.608mil|Location2.X=3756.274mil|Location1.Y=4411.816mil|Location2.Y=4419.483mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.254mm) Between Pad U3-5(95.312mm,112.157mm) on Top Layer And Track (95.312mm,104.968mm)(95.312mm,118.238mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3748.608mil|Location2.X=3756.274mil|Location1.Y=4361.816mil|Location2.Y=4369.483mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3748.608mil|Location2.X=3756.274mil|Location1.Y=4361.816mil|Location2.Y=4369.483mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.254mm) Between Pad U3-6(95.312mm,110.887mm) on Top Layer And Track (95.312mm,104.968mm)(95.312mm,118.238mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3748.608mil|Location2.X=3756.274mil|Location1.Y=4311.816mil|Location2.Y=4319.483mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3748.608mil|Location2.X=3756.274mil|Location1.Y=4311.816mil|Location2.Y=4319.483mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.254mm) Between Pad U3-7(95.312mm,109.617mm) on Top Layer And Track (95.312mm,104.968mm)(95.312mm,118.238mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3748.608mil|Location2.X=3756.274mil|Location1.Y=4261.816mil|Location2.Y=4269.483mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3748.608mil|Location2.X=3756.274mil|Location1.Y=4261.816mil|Location2.Y=4269.483mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.254mm) Between Pad U3-8(95.312mm,108.347mm) on Top Layer And Track (95.312mm,104.968mm)(95.312mm,118.238mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3748.608mil|Location2.X=3756.274mil|Location1.Y=4211.816mil|Location2.Y=4219.483mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3748.608mil|Location2.X=3756.274mil|Location1.Y=4211.816mil|Location2.Y=4219.483mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.254mm) Between Pad U3-9(95.312mm,107.077mm) on Top Layer And Track (95.312mm,104.968mm)(95.312mm,118.238mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="IDYWQK00KJCZFNJQXUGBS34V3ZBLDXG5434BDNJTFY3OH3NHLUWTRD"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Net Antennae (Tolerance=0mm) (All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3448.465mil|Location2.X=3474.024mil|Location1.Y=4247.427mil|Location2.Y=4284.877mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3448.465mil|Location2.X=3474.024mil|Location1.Y=4247.427mil|Location2.Y=4284.877mil|Absolute=True">Net Antennae: Track (87.83mm,108.124mm)(88.15mm,108.444mm) on Bottom Layer </acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="IDCHDAS3GHVMCFMFDQLY35FYQXSNVKE3YFRSFDVLGYGTYIGE13GQUD"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Room R?2 (Bounding Region = (29.461mm, 74.99mm, 88.461mm, 84.99mm) (InComponentClass('R?2'))</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1159.882mil|Location2.X=3482.717mil|Location1.Y=2939.961mil|Location2.Y=3372.047mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1159.882mil|Location2.X=3482.717mil|Location1.Y=2939.961mil|Location2.Y=3372.047mil|Absolute=True">Room Definition: Between Room R?2 (Bounding Region = (29.461mm, 74.99mm, 88.461mm, 84.99mm) (InComponentClass('R?2')) And Small Component P4_R?2-SCREW-5.0/5.08 2WAYS (35.461mm,79.8mm) on Top Layer </acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="ID4LX31YBM4D4NEYDIGCPEKWU21GACAECOEQH1HBBTFI3VABYAWUS"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Room R?1 (Bounding Region = (29.5mm, 85.287mm, 88.5mm, 95.287mm) (InComponentClass('R?1'))</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1161.417mil|Location2.X=3484.252mil|Location1.Y=3352.854mil|Location2.Y=3784.941mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1161.417mil|Location2.X=3484.252mil|Location1.Y=3352.854mil|Location2.Y=3784.941mil|Absolute=True">Room Definition: Between Room R?1 (Bounding Region = (29.5mm, 85.287mm, 88.5mm, 95.287mm) (InComponentClass('R?1')) And Small Component P4_R?1-SCREW-5.0/5.08 2WAYS (35.5mm,90.287mm) on Top Layer </acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="IDYXRSO3I5E3GDPGZPD2J14V4IGI1ZAY4UVN2QHAFIDHZZISWQPCYM"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Room DoorCard_ReceiverController (Bounding Region = (191.389mm, 0.381mm, 409.067mm, 34.671mm) (InComponentClass('DoorCard_ReceiverController'))</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4172.953mil|Location2.X=16105mil|Location1.Y=15mil|Location2.Y=2845.649mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4172.953mil|Location2.X=16105mil|Location1.Y=15mil|Location2.Y=2845.649mil|Absolute=True">Room Definition: Between Component J2-DSUB_9P_THT (112.42mm,56.532mm) on Top Layer And Room DoorCard_ReceiverController (Bounding Region = (191.389mm, 0.381mm, 409.067mm, 34.671mm) (InComponentClass('DoorCard_ReceiverController')) </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4136.26mil|Location2.X=16105mil|Location1.Y=15mil|Location2.Y=3525.138mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4136.26mil|Location2.X=16105mil|Location1.Y=15mil|Location2.Y=3525.138mil|Absolute=True">Room Definition: Between Component SW1-DTSM-61NT/R (108.311mm,84.662mm) on Top Layer And Room DoorCard_ReceiverController (Bounding Region = (191.389mm, 0.381mm, 409.067mm, 34.671mm) (InComponentClass('DoorCard_ReceiverController')) </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2693.281mil|Location2.X=16105mil|Location1.Y=15mil|Location2.Y=4931.496mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2693.281mil|Location2.X=16105mil|Location1.Y=15mil|Location2.Y=4931.496mil|Absolute=True">Room Definition: Between Component SW2-DTSM-61NT/R (73.285mm,122mm) on Top Layer And Room DoorCard_ReceiverController (Bounding Region = (191.389mm, 0.381mm, 409.067mm, 34.671mm) (InComponentClass('DoorCard_ReceiverController')) </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2209.606mil|Location2.X=16105mil|Location1.Y=15mil|Location2.Y=4931.496mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2209.606mil|Location2.X=16105mil|Location1.Y=15mil|Location2.Y=4931.496mil|Absolute=True">Room Definition: Between Component SW3-DTSM-61NT/R (61mm,122mm) on Top Layer And Room DoorCard_ReceiverController (Bounding Region = (191.389mm, 0.381mm, 409.067mm, 34.671mm) (InComponentClass('DoorCard_ReceiverController')) </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3871.063mil|Location2.X=16105mil|Location1.Y=15mil|Location2.Y=3502.952mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3871.063mil|Location2.X=16105mil|Location1.Y=15mil|Location2.Y=3502.952mil|Absolute=True">Room Definition: Between Component U1-WS2812B (100.95mm,85.65mm) on Top Layer And Room DoorCard_ReceiverController (Bounding Region = (191.389mm, 0.381mm, 409.067mm, 34.671mm) (InComponentClass('DoorCard_ReceiverController')) </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1693.898mil|Location2.X=16105mil|Location1.Y=15mil|Location2.Y=4876.968mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1693.898mil|Location2.X=16105mil|Location1.Y=15mil|Location2.Y=4876.968mil|Absolute=True">Room Definition: Between Component U4-LT1117CST-3.3#TRPBF (46.65mm,119.5mm) on Top Layer And Room DoorCard_ReceiverController (Bounding Region = (191.389mm, 0.381mm, 409.067mm, 34.671mm) (InComponentClass('DoorCard_ReceiverController')) </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3176.378mil|Location2.X=16105mil|Location1.Y=15mil|Location2.Y=4792.717mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3176.378mil|Location2.X=16105mil|Location1.Y=15mil|Location2.Y=4792.717mil|Absolute=True">Room Definition: Between DIP Component P1-30310-6002HB (85.73mm,111.46mm) on Top Layer And Room DoorCard_ReceiverController (Bounding Region = (191.389mm, 0.381mm, 409.067mm, 34.671mm) (InComponentClass('DoorCard_ReceiverController')) </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4601.378mil|Location2.X=16105mil|Location1.Y=15mil|Location2.Y=4577.461mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4601.378mil|Location2.X=16105mil|Location1.Y=15mil|Location2.Y=4577.461mil|Absolute=True">Room Definition: Between Edge Component J1-32K145-400L5 (122mm,108.118mm) on Top Layer And Room DoorCard_ReceiverController (Bounding Region = (191.389mm, 0.381mm, 409.067mm, 34.671mm) (InComponentClass('DoorCard_ReceiverController')) </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2382.651mil|Location2.X=16105mil|Location1.Y=15mil|Location2.Y=4525mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2382.651mil|Location2.X=16105mil|Location1.Y=15mil|Location2.Y=4525mil|Absolute=True">Room Definition: Between Room DoorCard_ReceiverController (Bounding Region = (191.389mm, 0.381mm, 409.067mm, 34.671mm) (InComponentClass('DoorCard_ReceiverController')) And SIP Component P2-PHT-106-01-L-S (62.014mm,100.59mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1701.772mil|Location2.X=16105mil|Location1.Y=15mil|Location2.Y=4361.221mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1701.772mil|Location2.X=16105mil|Location1.Y=15mil|Location2.Y=4361.221mil|Absolute=True">Room Definition: Between Room DoorCard_ReceiverController (Bounding Region = (191.389mm, 0.381mm, 409.067mm, 34.671mm) (InComponentClass('DoorCard_ReceiverController')) And Small Component C6-ECA-1HM470 (46.5mm,107.5mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1176.181mil|Location2.X=16105mil|Location1.Y=15mil|Location2.Y=4570.866mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1176.181mil|Location2.X=16105mil|Location1.Y=15mil|Location2.Y=4570.866mil|Absolute=True">Room Definition: Between Room DoorCard_ReceiverController (Bounding Region = (191.389mm, 0.381mm, 409.067mm, 34.671mm) (InComponentClass('DoorCard_ReceiverController')) And Small Component P3-SCREW-5.0/5.08 2WAYS (35.5mm,110.25mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3716.945mil|Location2.X=16105mil|Location1.Y=15mil|Location2.Y=4660.02mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3716.945mil|Location2.X=16105mil|Location1.Y=15mil|Location2.Y=4660.02mil|Absolute=True">Room Definition: Between Room DoorCard_ReceiverController (Bounding Region = (191.389mm, 0.381mm, 409.067mm, 34.671mm) (InComponentClass('DoorCard_ReceiverController')) And SMT SIP Component U3-Si4463 (95.312mm,105.807mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2781.903mil|Location2.X=16105mil|Location1.Y=15mil|Location2.Y=4038.386mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2781.903mil|Location2.X=16105mil|Location1.Y=15mil|Location2.Y=4038.386mil|Absolute=True">Room Definition: Between Room DoorCard_ReceiverController (Bounding Region = (191.389mm, 0.381mm, 409.067mm, 34.671mm) (InComponentClass('DoorCard_ReceiverController')) And SMT Small Component C1-1uF (71.985mm,100.35mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2756.312mil|Location2.X=16105mil|Location1.Y=15mil|Location2.Y=4589.567mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2756.312mil|Location2.X=16105mil|Location1.Y=15mil|Location2.Y=4589.567mil|Absolute=True">Room Definition: Between Room DoorCard_ReceiverController (Bounding Region = (191.389mm, 0.381mm, 409.067mm, 34.671mm) (InComponentClass('DoorCard_ReceiverController')) And SMT Small Component C2-1uF (71.335mm,114.35mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2860.801mil|Location2.X=16105mil|Location1.Y=15mil|Location2.Y=4589.567mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2860.801mil|Location2.X=16105mil|Location1.Y=15mil|Location2.Y=4589.567mil|Absolute=True">Room Definition: Between Room DoorCard_ReceiverController (Bounding Region = (191.389mm, 0.381mm, 409.067mm, 34.671mm) (InComponentClass('DoorCard_ReceiverController')) And SMT Small Component C3-1uF (73.989mm,114.35mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1902.559mil|Location2.X=16105mil|Location1.Y=15mil|Location2.Y=4506.89mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1902.559mil|Location2.X=16105mil|Location1.Y=15mil|Location2.Y=4506.89mil|Absolute=True">Room Definition: Between Room DoorCard_ReceiverController (Bounding Region = (191.389mm, 0.381mm, 409.067mm, 34.671mm) (InComponentClass('DoorCard_ReceiverController')) And SMT Small Component C4-10uF (50.35mm,113.5mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1701.772mil|Location2.X=16105mil|Location1.Y=15mil|Location2.Y=4506.89mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1701.772mil|Location2.X=16105mil|Location1.Y=15mil|Location2.Y=4506.89mil|Absolute=True">Room Definition: Between Room DoorCard_ReceiverController (Bounding Region = (191.389mm, 0.381mm, 409.067mm, 34.671mm) (InComponentClass('DoorCard_ReceiverController')) And SMT Small Component C5-10uF (45.25mm,113.5mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2160.702mil|Location2.X=16105mil|Location1.Y=15mil|Location2.Y=4099.803mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2160.702mil|Location2.X=16105mil|Location1.Y=15mil|Location2.Y=4099.803mil|Absolute=True">Room Definition: Between Room DoorCard_ReceiverController (Bounding Region = (191.389mm, 0.381mm, 409.067mm, 34.671mm) (InComponentClass('DoorCard_ReceiverController')) And SMT Small Component D1-MMSD4148T3G (57.102mm,103.21mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1843.504mil|Location2.X=16105mil|Location1.Y=15mil|Location2.Y=4044.095mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1843.504mil|Location2.X=16105mil|Location1.Y=15mil|Location2.Y=4044.095mil|Absolute=True">Room Definition: Between Room DoorCard_ReceiverController (Bounding Region = (191.389mm, 0.381mm, 409.067mm, 34.671mm) (InComponentClass('DoorCard_ReceiverController')) And SMT Small Component D2-MMSD4148T3G (47.75mm,100.5mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3773.622mil|Location2.X=16105mil|Location1.Y=15mil|Location2.Y=3895.177mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3773.622mil|Location2.X=16105mil|Location1.Y=15mil|Location2.Y=3895.177mil|Absolute=True">Room Definition: Between Room DoorCard_ReceiverController (Bounding Region = (191.389mm, 0.381mm, 409.067mm, 34.671mm) (InComponentClass('DoorCard_ReceiverController')) And SMT Small Component DS1-TLMS1100-GS08 (96.45mm,97.788mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3855.315mil|Location2.X=16105mil|Location1.Y=15mil|Location2.Y=3895.177mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3855.315mil|Location2.X=16105mil|Location1.Y=15mil|Location2.Y=3895.177mil|Absolute=True">Room Definition: Between Room DoorCard_ReceiverController (Bounding Region = (191.389mm, 0.381mm, 409.067mm, 34.671mm) (InComponentClass('DoorCard_ReceiverController')) And SMT Small Component DS2-TLMS1100-GS08 (98.525mm,97.788mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2013.78mil|Location2.X=16105mil|Location1.Y=15mil|Location2.Y=4638.78mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2013.78mil|Location2.X=16105mil|Location1.Y=15mil|Location2.Y=4638.78mil|Absolute=True">Room Definition: Between Room DoorCard_ReceiverController (Bounding Region = (191.389mm, 0.381mm, 409.067mm, 34.671mm) (InComponentClass('DoorCard_ReceiverController')) And SMT Small Component DS3-TLMS1100-GS08 (51.75mm,116.1mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3869.094mil|Location2.X=16105mil|Location1.Y=15mil|Location2.Y=2268.208mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3869.094mil|Location2.X=16105mil|Location1.Y=15mil|Location2.Y=2268.208mil|Absolute=True">Room Definition: Between Room DoorCard_ReceiverController (Bounding Region = (191.389mm, 0.381mm, 409.067mm, 34.671mm) (InComponentClass('DoorCard_ReceiverController')) And SMT Small Component DS5-TLMS1100-GS08 (100mm,57.012mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3869.094mil|Location2.X=16105mil|Location1.Y=15mil|Location2.Y=2346.948mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3869.094mil|Location2.X=16105mil|Location1.Y=15mil|Location2.Y=2346.948mil|Absolute=True">Room Definition: Between Room DoorCard_ReceiverController (Bounding Region = (191.389mm, 0.381mm, 409.067mm, 34.671mm) (InComponentClass('DoorCard_ReceiverController')) And SMT Small Component DS6-TLMS1100-GS08 (100mm,59.012mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1721.457mil|Location2.X=16105mil|Location1.Y=15mil|Location2.Y=4036.417mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1721.457mil|Location2.X=16105mil|Location1.Y=15mil|Location2.Y=4036.417mil|Absolute=True">Room Definition: Between Room DoorCard_ReceiverController (Bounding Region = (191.389mm, 0.381mm, 409.067mm, 34.671mm) (InComponentClass('DoorCard_ReceiverController')) And SMT Small Component F1-1206L012WR (44.75mm,100.5mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3999.016mil|Location2.X=16105mil|Location1.Y=15mil|Location2.Y=2353.838mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3999.016mil|Location2.X=16105mil|Location1.Y=15mil|Location2.Y=2353.838mil|Absolute=True">Room Definition: Between Room DoorCard_ReceiverController (Bounding Region = (191.389mm, 0.381mm, 409.067mm, 34.671mm) (InComponentClass('DoorCard_ReceiverController')) And SMT Small Component R10-330 (103mm,59.012mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3766.732mil|Location2.X=16105mil|Location1.Y=15mil|Location2.Y=4024.114mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3766.732mil|Location2.X=16105mil|Location1.Y=15mil|Location2.Y=4024.114mil|Absolute=True">Room Definition: Between Room DoorCard_ReceiverController (Bounding Region = (191.389mm, 0.381mm, 409.067mm, 34.671mm) (InComponentClass('DoorCard_ReceiverController')) And SMT Small Component R1-330 (96.45mm,100.788mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3848.425mil|Location2.X=16105mil|Location1.Y=15mil|Location2.Y=4024.114mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3848.425mil|Location2.X=16105mil|Location1.Y=15mil|Location2.Y=4024.114mil|Absolute=True">Room Definition: Between Room DoorCard_ReceiverController (Bounding Region = (191.389mm, 0.381mm, 409.067mm, 34.671mm) (InComponentClass('DoorCard_ReceiverController')) And SMT Small Component R2-330 (98.525mm,100.788mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4145.512mil|Location2.X=16105mil|Location1.Y=15mil|Location2.Y=3664.862mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4145.512mil|Location2.X=16105mil|Location1.Y=15mil|Location2.Y=3664.862mil|Absolute=True">Room Definition: Between Room DoorCard_ReceiverController (Bounding Region = (191.389mm, 0.381mm, 409.067mm, 34.671mm) (InComponentClass('DoorCard_ReceiverController')) And SMT Small Component R3-10k (106.071mm,91.662mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2232.848mil|Location2.X=16105mil|Location1.Y=15mil|Location2.Y=4490.748mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2232.848mil|Location2.X=16105mil|Location1.Y=15mil|Location2.Y=4490.748mil|Absolute=True">Room Definition: Between Room DoorCard_ReceiverController (Bounding Region = (191.389mm, 0.381mm, 409.067mm, 34.671mm) (InComponentClass('DoorCard_ReceiverController')) And SMT Small Component R4-10k (58.139mm,113.29mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3999.016mil|Location2.X=16105mil|Location1.Y=15mil|Location2.Y=2275.098mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3999.016mil|Location2.X=16105mil|Location1.Y=15mil|Location2.Y=2275.098mil|Absolute=True">Room Definition: Between Room DoorCard_ReceiverController (Bounding Region = (191.389mm, 0.381mm, 409.067mm, 34.671mm) (InComponentClass('DoorCard_ReceiverController')) And SMT Small Component R5-330 (103mm,57.012mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2222.021mil|Location2.X=16105mil|Location1.Y=15mil|Location2.Y=4183.465mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2222.021mil|Location2.X=16105mil|Location1.Y=15mil|Location2.Y=4183.465mil|Absolute=True">Room Definition: Between Room DoorCard_ReceiverController (Bounding Region = (191.389mm, 0.381mm, 409.067mm, 34.671mm) (InComponentClass('DoorCard_ReceiverController')) And SMT Small Component R6-10k (57.864mm,105.485mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2006.89mil|Location2.X=16105mil|Location1.Y=15mil|Location2.Y=4760.827mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2006.89mil|Location2.X=16105mil|Location1.Y=15mil|Location2.Y=4760.827mil|Absolute=True">Room Definition: Between Room DoorCard_ReceiverController (Bounding Region = (191.389mm, 0.381mm, 409.067mm, 34.671mm) (InComponentClass('DoorCard_ReceiverController')) And SMT Small Component R7-10k (51.75mm,119.5mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2693.32mil|Location2.X=16105mil|Location1.Y=15mil|Location2.Y=4401.575mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2693.32mil|Location2.X=16105mil|Location1.Y=15mil|Location2.Y=4401.575mil|Absolute=True">Room Definition: Between Room DoorCard_ReceiverController (Bounding Region = (191.389mm, 0.381mm, 409.067mm, 34.671mm) (InComponentClass('DoorCard_ReceiverController')) And SOIC Component U2-STM32F070F6P6 (72.31mm,107.35mm) on Top Layer </acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="IDCKAZNIAT42O0EYDM3FA4FPV3YD5RJXKF5SKLBXP0GBHBHLGFB1SC"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Room R?5 (Bounding Region = (29.5mm, 43.765mm, 88.5mm, 53.765mm) (InComponentClass('R?5'))</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1161.417mil|Location2.X=3484.252mil|Location1.Y=1710.63mil|Location2.Y=2142.717mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1161.417mil|Location2.X=3484.252mil|Location1.Y=1710.63mil|Location2.Y=2142.717mil|Absolute=True">Room Definition: Between Room R?5 (Bounding Region = (29.5mm, 43.765mm, 88.5mm, 53.765mm) (InComponentClass('R?5')) And Small Component P4_R?5-SCREW-5.0/5.08 2WAYS (35.5mm,48.575mm) on Top Layer </acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="IDBIUYYW4PFCWXBK1ZXVHXLTUHTIUAYT1V3VWO2SECXINOJ41AXBIM"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Room R?4 (Bounding Region = (29.5mm, 54.215mm, 88.5mm, 64.215mm) (InComponentClass('R?4'))</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1161.417mil|Location2.X=3484.252mil|Location1.Y=2122.047mil|Location2.Y=2554.134mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1161.417mil|Location2.X=3484.252mil|Location1.Y=2122.047mil|Location2.Y=2554.134mil|Absolute=True">Room Definition: Between Room R?4 (Bounding Region = (29.5mm, 54.215mm, 88.5mm, 64.215mm) (InComponentClass('R?4')) And Small Component P4_R?4-SCREW-5.0/5.08 2WAYS (35.5mm,59.025mm) on Top Layer </acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="IDKIMZF4VJS0A4PLPOQZN2HMLEUJMZQVZFVB2IWLFN2BTWYKXAFWC"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Room R?3 (Bounding Region = (29.461mm, 64.615mm, 88.461mm, 74.615mm) (InComponentClass('R?3'))</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1159.882mil|Location2.X=3482.717mil|Location1.Y=2531.496mil|Location2.Y=2963.583mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Github\si446x\Hardware\ReceiverController\development\DoorCard_ReceiverController\DoorCardController.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1159.882mil|Location2.X=3482.717mil|Location1.Y=2531.496mil|Location2.Y=2963.583mil|Absolute=True">Room Definition: Between Room R?3 (Bounding Region = (29.461mm, 64.615mm, 88.461mm, 74.615mm) (InComponentClass('R?3')) And Small Component P4_R?3-SCREW-5.0/5.08 2WAYS (35.461mm,69.425mm) on Top Layer </acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br></body>
+</html>

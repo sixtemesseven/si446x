@@ -1,0 +1,12 @@
+Output: NC Drill Files
+Type  : NC Drill
+From  : Project [DoorCard_v0.1.PrjPcb]
+   Generated File[doorCard.TXT]
+   Generated File[doorCard.LDP]
+   Generated File[doorCard.DRR]
+
+
+Files Generated   : 3
+Documents Printed : 0
+
+Finished Output Generation At 20:41:19 On 29/10/2019
