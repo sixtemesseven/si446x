@@ -1,0 +1,9 @@
+Removed Pin From Net: NetName=VCC_P Pin=R2-2
+Removed Pin From Net: NetName=VCC_P Pin=R3-1
+Removed Pin From Net: NetName=VCC_P Pin=R4-2
+Removed Member From Class: ClassName=DoorCard Member=R2
+Removed Member From Class: ClassName=DoorCard Member=R3
+Removed Member From Class: ClassName=DoorCard Member=R4
+Added Pin To Net: NetName=VCC_P Pin=SW1-3
+Added Pin To Net: NetName=VCC_P Pin=SW2-3
+Added Pin To Net: NetName=VCC_P Pin=SW3-3

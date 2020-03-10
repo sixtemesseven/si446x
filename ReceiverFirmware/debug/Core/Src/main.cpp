@@ -148,11 +148,11 @@ int main(void)
 	 	  */
 
 	 	  //MODEM 2 - RECEIVER
-	 		/*
-	 		 while (1)
+	  	  HAL_GPIO_WritePin(GPIOB, Relay_5_Pin, GPIO_PIN_RESET);
+	  	  while (1)
 	 		  {
 	 			  rf.startRX(1);
-	 			  HAL_Delay(1000);
+	 			  HAL_Delay(30);
 	 			  uint8_t fifoBytes = rf.getRxFifoInfo();
 	 			  uint8_t buf[16] = {};
 	 			  if(fifoBytes > 0)
@@ -160,14 +160,17 @@ int main(void)
 	 				  uint8_t packetReceived[] = "/n Packet Received \n";
 	 				  HAL_UART_Transmit(&huart2, packetReceived, sizeof(packetReceived), 1000);
 	 				  rf.getPacket(buf, fifoBytes);
-	 				  HAL_UART_Transmit(&huart2, buf, sizeof(buf), 1000);
-	 				  break;
-
-
+	 				  //HAL_UART_Transmit(&huart2, buf, sizeof(buf), 1000);
+	 				  //break;
 	 				  //if(buf == answer){break;};
+	 				  HAL_GPIO_WritePin(GPIOB, Relay_5_Pin, GPIO_PIN_SET);
+	 				  HAL_Delay(100);
+	 				  HAL_GPIO_WritePin(GPIOB, Relay_5_Pin, GPIO_PIN_RESET);
 	 			  }
 	 		  }
-	 		  */
+
+	 		 /*
+	  	  	  	  	  	  HAL_GPIO_WritePin(GPIOF, Relay_5_Pin, GPIO_PIN_RESET);
 	  	  	  	  	  	  rf.startRX(1);
 	  	  	  	  	  	  HAL_Delay(1000);
 	  		 			  uint8_t fifoBytes = rf.getRxFifoInfo();
@@ -185,9 +188,12 @@ int main(void)
 	  		 					HAL_UART_Transmit(&huart2, packetReceived, sizeof(packetReceived), 1000);
 	  		 					uint8_t data[] = "7654321";
 	  		 					rf.sendPacket(data, sizeof(data), 1);
+	  		 					HAL_GPIO_WritePin(GPIOF, Relay_5_Pin, GPIO_PIN_SET);
+	  		 					HAL_Delay(1000);
+	  		 					HAL_GPIO_WritePin(GPIOF, Relay_5_Pin, GPIO_PIN_RESET);
 	  		 				  }
 	  		 			  }
-
+			*/
 
   }
   /* USER CODE END 3 */

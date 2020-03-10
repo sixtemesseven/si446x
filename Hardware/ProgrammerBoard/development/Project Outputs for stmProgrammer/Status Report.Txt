@@ -1,0 +1,12 @@
+Output: NC Drill Files
+Type  : NC Drill
+From  : Project [stmProgrammer.PrjPcb]
+   Generated File[stmProgrammer.TXT]
+   Generated File[stmProgrammer.LDP]
+   Generated File[stmProgrammer.DRR]
+
+
+Files Generated   : 3
+Documents Printed : 0
+
+Finished Output Generation At 00:32:40 On 27/11/2019

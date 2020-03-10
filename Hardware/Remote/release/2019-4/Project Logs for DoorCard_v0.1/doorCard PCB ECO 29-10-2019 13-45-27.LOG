@@ -1,0 +1,4 @@
+Removed Pin From Net: NetName=SDN Pin=U3-3
+Removed Pin From Net: NetName=SW3 Pin=U3-17
+Added Pin To Net: NetName=SW3 Pin=U3-3
+Added Pin To Net: NetName=SDN Pin=U3-17
